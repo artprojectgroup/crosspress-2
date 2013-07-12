@@ -1,5 +1,5 @@
 === CrossPress 2 ===
-Contributors: Art Project Group
+Contributors: artprojectgroup
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4
 Tags: livejournal.com, tumblr.com, blogspot.com, wordpress.com, livejournal, tumblr, blogger, wordpress, autopost
 Requires at least: 2.6
