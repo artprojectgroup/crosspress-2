@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: CrossPress 2
+Version: 0.2
 Description: Gracias a CrossPress 2 podremos publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en otros servicios. Creado a partir del plugin de <a href="http://www.atthakorn.com/project/crosspress/">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/"><strong>CrossPress</strong></a>.
-Version: 1.0
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Author: Art Project Group
 Author URI: http://www.artprojectgroup.es/

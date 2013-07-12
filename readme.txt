@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: livejournal.com, tumblr.com, blogspot.com, wordpress.com, livejournal, tumblr, blogger, wordpress, autopost
 Requires at least: 2.6
 Tested up to: 3.5.2
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,3 +38,11 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 
 = 0.1 =
 Versión inicial
+
+= 0.2 =
+Versión inicial mejorada
+
+== Upgrade Notice ==
+
+= 0.2 =
+Arreglo de pequeños errores en el código fuente
