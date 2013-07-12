@@ -14,10 +14,13 @@ Gracias a CrossPress 2 podremos publicar automáticamente las entradas que publi
 
 Gracias a CrossPress 2 aparecerán un nuevo elemento en Ajustes que nos permitirá introducir los código PIN, cuentas de correo electrónico, para poder publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en WordPress.com, Blogpsot.com, LiveJournal.com y tumblr.com, entre otros muchos servicios.
 
+Puede obtener más información sobre CrossPress 2 en nuestro sitio web oficial: http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2
+
 == Installation ==
 
-1. Upload `custom-base` folder to the `/wp-content/plugins/` directory.
-2. Activate the plugin through the 'Plugins' menu in WordPress.
+1. Subir la carpeta `crosspress` al directorio `/wp-content/plugins/`.
+2. Activar el plugin a través del menú 'Plugins' en el Panel de Administración de WordPress.
+3. Configurar el plugin en Ajustes -> CrossPress.
 
 == Frequently asked questions ==
 
