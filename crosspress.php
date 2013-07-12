@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 0.2
-Description: Gracias a CrossPress 2 podremos publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en otros servicios. Creado a partir del plugin de <a href="http://www.atthakorn.com/project/crosspress/">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/"><strong>CrossPress</strong></a>.
+Version: 0.3
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
+Description: Gracias a CrossPress 2 podremos publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en otros servicios. Creado a partir del plugin de <a href="http://www.atthakorn.com/project/crosspress/">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/"><strong>CrossPress</strong></a>.
 Author: Art Project Group
 Author URI: http://www.artprojectgroup.es/
 */
@@ -16,8 +16,7 @@ class CrossPress
 	var $saved = false;
 
 	function CrossPress() {
-		if($_POST['pin'] || $_POST['signature'] || $_POST['summarytext']) {
-
+		if ($_POST['pin'] || $_POST['signature'] || $_POST['summarytext']) {
 			if (get_option('crosspress_pin') || get_option('crosspress_pin') == NULL) update_option('crosspress_pin',  $_POST['pin']);
 			else add_option('crosspress_pin',  $_POST['pin']);
 
@@ -26,6 +25,9 @@ class CrossPress
 			
 			if (get_option('crosspress_summary') || get_option('crosspress_summary') == NULL) update_option('crosspress_summary', $_POST['summarytext']);
 			else add_option('crosspress_summary',  $_POST['summarytext']);
+
+			if (get_option('crosspress_resena') || get_option('crosspress_resena') == NULL) update_option('crosspress_resena', $_POST['resena']);
+			else add_option('crosspress_resena',  $_POST['resena']);
 
 			$this->saved = true;
 		}
@@ -38,31 +40,41 @@ class CrossPress
 	}
 
 	function plugin_options () {
-		if($this->saved) {
-			print "<div id=\"message\" class=\"updated fade\"><p><strong>Opciones guardadas.</strong></p></div>\n\n";
-		}
+		if ($this->saved) echo '<div id="message" class="updated fade"><p><strong>Opciones guardadas.</strong></p></div>'.PHP_EOL;
 		
-		print '<div class="wrap">';
-		print '<h2>Opciones de CrossPress</h2>';
-		print '<hr />';
-		print'<form style="padding-left:25px;" method="post" action="">';
+		echo '<div class="wrap">'.PHP_EOL;
+		echo '<h2>Opciones de CrossPress</h2>'.PHP_EOL;
+		echo '<hr />'.PHP_EOL;
+		echo'<form style="padding-left:25px;" method="post" action="">'.PHP_EOL;
 		
-		print '<div>';
-		print '<b>PIN secreto:</b><br />';
-		print 'Código PIN (correo electrónico) que le permite publicar automáticamente en su sitio/blog por correo electrónico.<br />';
-		print 'Cada PIN debe intoducirse en una nueva línea.<br />';
-		print 'Funciona en WordPress.com, Blogspot.com, Tumblr.com y LiveJounal.com, por ejemplo.<br />';
-		print '<textarea name="pin"  cols="50" rows="5">'.stripcslashes(get_option('crosspress_pin')).'</textarea><br /><br />';
-		print '<b>Firma :</b><br />';
-		print 'Puede añadir una firma si lo desea. Las URLs introducidas serán convertidas en enlaces automáticamente.<br />';
-		print '<textarea name="signature" cols="50" rows="5">'.stripcslashes(get_option('crosspress_signature')).'</textarea><br /><br />';
-		print '<input name="summarytext" type="checkbox" value="1" '.(get_option('crosspress_summary') == "1" ? "checked":  "").'> Mostrar resumen.';
-		print '</div>';
-		print '<div><input type="submit" value="Guardar &raquo;"></div>';
+		echo '<div>'.PHP_EOL;
+		echo '<b>PIN secreto:</b><br />'.PHP_EOL;
+		echo 'Código PIN (correo electrónico) que le permite publicar automáticamente en su sitio/blog por correo electrónico.<br />'.PHP_EOL;
+		echo 'Cada PIN debe intoducirse en una nueva línea.<br />'.PHP_EOL;
+		echo 'Funciona en WordPress.com, Blogspot.com, Tumblr.com y LiveJounal.com, por ejemplo.<br />'.PHP_EOL;
+		echo '<textarea name="pin"  cols="50" rows="5">'.stripcslashes(get_option('crosspress_pin')).'</textarea><br /><br />'.PHP_EOL;
 		
-		print'</form></div>';
-		print '<br />';
-		print '<br />';
+		echo '<b>Firma :</b><br />'.PHP_EOL;
+		echo 'Puede añadir una firma si lo desea. Las URLs introducidas serán convertidas en enlaces automáticamente.<br />'.PHP_EOL;
+		echo '<textarea name="signature" cols="50" rows="5">'.stripcslashes(get_option('crosspress_signature')).'</textarea><br /><br />'.PHP_EOL;
+		
+		echo '<input name="summarytext" type="checkbox" value="1" '.(get_option('crosspress_summary') == "1" ? "checked":  "").'> Mostrar resumen.<br /><br />'.PHP_EOL;
+
+		//Inicializamos datos
+		if (get_option('crosspress_resena') == NULL) $resena = 'Sigue leyendo en ';
+		else $resena = get_option('crosspress_resena');
+		$enlace = network_site_url( '/' ) . "/nombre-de-la-entrada";
+		$titulo = "Nombre de la entrada";
+		
+		echo 'Puede personalizar, si lo desea, la reseña que aparecerá tras el resumen. Es muy importante que deje un espacio en blanco tras esta.<br />'.PHP_EOL;
+		echo 'La reseña del resumen actualmente tiene esta apariencia:<br />'.$resena.'<a href="'.$enlace.'" title="'.$titulo.' en '.get_bloginfo('name').'">'.$titulo.'</a>.<br />'.PHP_EOL;
+		echo '<textarea name="resena" cols="50" rows="5">'.stripcslashes($resena).'</textarea><br /><br />'.PHP_EOL; 
+		
+		echo '</div>'.PHP_EOL;
+		echo '<div><input type="submit" value="Guardar &raquo;"></div>'.PHP_EOL;
+		
+		echo'</form>'.PHP_EOL;
+		echo '</div>'.PHP_EOL;
 	}
 
 	function add_action() {
@@ -87,7 +99,7 @@ class CrossPress
 			{
 				if (!empty($post->post_excerpt)) $msg = the_excerpt();
 				else $msg = $excerpt;
-				$msg .= '<br /><br />Sigue leyendo en <a href="'.get_permalink($postid).'" title="'.$post->post_title.' en Art Project Group">'.$post->post_title.'</a>.';   
+				$msg .= '<br /><br />'.get_option('crosspress_resena').'<a href="'.get_permalink($postid).'" title="'.$post->post_title.' en '.get_bloginfo('name').'">'.$post->post_title.'</a>.';   
 			}
 			else 
 			{
@@ -118,9 +130,9 @@ class CrossPress
 			}
 			
 			//sending mail
-			mail($to, $subject, $msg, $headers);
+			mail($to, $subject, $msg, $headers); //A todos los servicios
 			
-			if (isset($wordpress[0][0])) mail($wordpress[0][0], $subject, $mensaje, $headers); //A WordPress.com
+			if (isset($wordpress[0][0])) mail($wordpress[0][0], $subject, $mensaje, $headers); //Y a, si existe, a WordPress.com
 		}
 	
 		return $postid;

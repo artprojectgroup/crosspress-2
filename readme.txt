@@ -42,7 +42,13 @@ Versión inicial
 = 0.2 =
 Versión inicial mejorada
 
+= 0.3 =
+Añadida sección de reseña.
+
 == Upgrade Notice ==
 
 = 0.2 =
 Arreglo de pequeños errores en el código fuente
+
+= 0.3 =
+Se ha añadido una nueva sección para poder personalizar el texto en los resúmenes.
