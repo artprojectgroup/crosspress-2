@@ -8,13 +8,13 @@ Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Gracias a CrossPress 2 podremos publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en otros servicios.
+Publica automáticamente las entradas publicadas en nuestro sitio web en otros servicios: WordPress, Blogger, LiveJournal, Tumblr...
 
 == Description ==
 
-Gracias a CrossPress 2 aparecerán un nuevo elemento en Ajustes que nos permitirá introducir los código PIN, cuentas de correo electrónico, para poder publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en WordPress.com, Blogpsot.com, LiveJournal.com y tumblr.com, entre otros muchos servicios.
+Gracias a **CrossPress 2** aparecerán un nuevo elemento en Ajustes que nos permitirá introducir los código PIN, cuentas de correo electrónico, para poder publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en WordPress.com, Blogpsot.com, LiveJournal.com y tumblr.com, entre otros muchos servicios.
 
-Puede obtener más información sobre CrossPress 2 en nuestro sitio web oficial: http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2
+Puede obtener más información sobre **CrossPress 2** en nuestro sitio web oficial: http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2
 
 == Installation ==
 
