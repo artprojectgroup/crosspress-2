@@ -18,7 +18,7 @@ Puede obtener más información sobre **CrossPress 2** en nuestro sitio web ofic
 
 == Installation ==
 
-1. Subir la carpeta `crosspress` al directorio `/wp-content/plugins/`.
+1. Subir la carpeta `crosspress-2` al directorio `/wp-content/plugins/`.
 2. Activar el plugin a través del menú 'Plugins' en el Panel de Administración de WordPress.
 3. Configurar el plugin en Ajustes -> CrossPress.
 
