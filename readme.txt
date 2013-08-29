@@ -26,7 +26,7 @@ Puede obtener más información sobre **CrossPress 2** en nuestro sitio web ofic
 
 = ¿Cómo se configura? =
 
-Sólo hay que ir a Ajustes -> CrossPress y añadir los código PIN, cuentas de correo electrónico, proporcionadas por cada uno de los servicios donde queremos publicar: WordPress.com, Blogspot.com, LiveJournal.com o tumblr.com, entre otros.
+Sólo hay que ir a Ajustes -> CrossPress y añadir los código PIN, cuentas de correo electrónico, proporcionadas por cada uno de los servicios donde queremos publicar: BufferApp.com, WordPress.com, Blogspot.com, LiveJournal.com o tumblr.com, entre otros.
 
 Podemos añadir una firma personalizada, donde las URLs que introduzcamos se convertirán automáticamente en enlaces, y elegir si queremos que se publique el contenido íntegro de nuestra entrada o sólo un resumen.
 
