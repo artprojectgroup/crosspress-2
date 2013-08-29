@@ -3,8 +3,8 @@ Contributors: artprojectgroup
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4
 Tags: livejournal.com, tumblr.com, blogspot.com, wordpress.com, livejournal, tumblr, blogger, wordpress, autopost
 Requires at least: 2.6
-Tested up to: 3.5.2
-Stable tag: 0.2
+Tested up to: 3.6
+Stable tag: 0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Publica automáticamente las entradas publicadas en nuestro sitio web en otros s
 
 == Description ==
 
-Gracias a **CrossPress 2** aparecerán un nuevo elemento en Ajustes que nos permitirá introducir los código PIN, cuentas de correo electrónico, para poder publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en WordPress.com, Blogpsot.com, LiveJournal.com y tumblr.com, entre otros muchos servicios.
+Gracias a **CrossPress 2** aparecerán un nuevo elemento en Ajustes que nos permitirá introducir los código PIN, cuentas de correo electrónico, para poder publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en BufferApp.com, WordPress.com, Blogpsot.com, LiveJournal.com y tumblr.com, entre otros muchos servicios.
 
 Puede obtener más información sobre **CrossPress 2** en nuestro sitio web oficial: http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2
 
@@ -45,6 +45,9 @@ Versión inicial mejorada
 = 0.3 =
 Añadida sección de reseña.
 
+= 0.3 =
+Añadido soporto para Buffer.
+
 == Upgrade Notice ==
 
 = 0.2 =
@@ -52,3 +55,6 @@ Arreglo de pequeños errores en el código fuente
 
 = 0.3 =
 Se ha añadido una nueva sección para poder personalizar el texto en los resúmenes.
+
+= 0.4 =
+Se ha añadido soporte para BufferApp.com.
