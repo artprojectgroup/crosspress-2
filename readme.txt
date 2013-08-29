@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: livejournal.com, tumblr.com, blogspot.com, wordpress.com, livejournal, tumblr, blogger, wordpress, autopost
 Requires at least: 2.6
 Tested up to: 3.6
-Stable tag: 0.4
+Stable tag: 0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,24 +37,30 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 == Changelog ==
 
 = 0.1 =
-Versión inicial
+Versión inicial.
 
 = 0.2 =
-Versión inicial mejorada
+Versión inicial mejorada.
 
 = 0.3 =
 Añadida sección de reseña.
 
-= 0.3 =
-Añadido soporto para Buffer.
+= 0.4 =
+Añadido soporte para Buffer.
+
+= 0.5 =
+Arreglo de error en la publicación del contenido completo.
 
 == Upgrade Notice ==
 
 = 0.2 =
-Arreglo de pequeños errores en el código fuente
+Arreglo de pequeños errores en el código fuente.
 
 = 0.3 =
 Se ha añadido una nueva sección para poder personalizar el texto en los resúmenes.
 
 = 0.4 =
 Se ha añadido soporte para BufferApp.com.
+
+= 0.5 =
+Arreglo de error con la publicación del contenido sin resumir.

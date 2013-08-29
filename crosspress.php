@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 0.4
+Version: 0.5
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: Gracias a CrossPress 2 podremos publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en otros servicios. Creado a partir del plugin de <a href="http://www.atthakorn.com/project/crosspress/">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/"><strong>CrossPress</strong></a>.
 Author: Art Project Group
@@ -85,7 +85,8 @@ class CrossPress
 		$post = get_post($postid);
 		setup_postdata($post);
 		$resumen = get_the_excerpt();
-		$content = get_the_content();
+		$contenido = get_the_content();
+		$asunto_buffer = "";
 		$cuentas = array();
 		
 		//If post time is not equally to modified time, skip sending mail
@@ -98,14 +99,14 @@ class CrossPress
 			
 			if (get_option('crosspress_summary') == "1")
 			{
-				if (!empty($post->post_excerpt)) $resumen = $mensaje = the_excerpt();
-				else $mensaje = $resumen;
+				if (!empty($post->post_excerpt)) $asunto_buffer = $mensaje = the_excerpt();
+				else $asunto_buffer = $mensaje = $resumen;
 				$mensaje .= '<br /><br />'.get_option('crosspress_resena').'<a href="'.get_permalink($postid).'" title="'.$post->post_title.' en '.get_bloginfo('name').'">'.$post->post_title.'</a>.';   
 			}
 			else 
 			{
-				if (!empty($post->post_content)) $mensaje = the_content();
-				else $mensaje = $content;
+				if (!empty($post->post_content)) $asunto_buffer = $mensaje = the_content();
+				else $asunto_buffer = $mensaje = $contenido;
 			}
 			
 			$mensaje .= '<br /><br />';
@@ -135,7 +136,7 @@ class CrossPress
 			
 			//Formato específico para Buffer
 			if (strpos($para, 'bufferapp.com') !== false) {
-				$asunto_buffer = "=?UTF-8?B?" . base64_encode($resumen) . "?=";
+				$asunto_buffer = "=?UTF-8?B?" . base64_encode($asunto_buffer) . "?=";
 				$mensaje_buffer = get_permalink($postid) ."\n@now";
 				
 				preg_match_all('/[\w\.=-]+@[a-zA-Z0-9_\-\.]+bufferapp.com/', $para, $buffer);
