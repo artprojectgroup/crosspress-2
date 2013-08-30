@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 0.5
+Version: 0.6
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: Gracias a CrossPress 2 podremos publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en otros servicios. Creado a partir del plugin de <a href="http://www.atthakorn.com/project/crosspress/">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/"><strong>CrossPress</strong></a>.
 Author: Art Project Group
@@ -79,6 +79,7 @@ class CrossPress
 
 	function add_action() {
 		add_action('publish_post', array(&$this, 'post_2_blog'));
+		add_action('publish_future_post', array(&$this, 'post_2_blog'));
 	}
 
  	function post_2_blog($postid) {
@@ -86,7 +87,7 @@ class CrossPress
 		setup_postdata($post);
 		$resumen = get_the_excerpt();
 		$contenido = get_the_content();
-		$asunto_buffer = "";
+		$mensaje_wordpress = $asunto_buffer = $mensaje_buffer = "";
 		$cuentas = array();
 		
 		//If post time is not equally to modified time, skip sending mail
@@ -149,6 +150,7 @@ class CrossPress
 			}
 			
 			//Envía correo electrónico
+			//mail('info@artprojectgroup.com', 'CrossPress', $para . ' - ' . $asunto . ' - ' . $mensaje . '<br />' . print_r($cuentas, true) . ' - ' . $mensaje_wordpress . '<br />' . $asunto_buffer . ' - ' . $mensaje_buffer, $cabeceras); //Control de funcionamiento
 			if ($para) mail($para, $asunto, $mensaje, $cabeceras); //A todos los servicios disponibles
 			
 			if (isset($wordpress[0][0])) mail($wordpress[0][0], $asunto, $mensaje_wordpress, $cabeceras); //Específico para WordPress.com

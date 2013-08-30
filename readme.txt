@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: livejournal.com, tumblr.com, blogspot.com, wordpress.com, livejournal, tumblr, blogger, wordpress, autopost
 Requires at least: 2.6
 Tested up to: 3.6
-Stable tag: 0.5
+Stable tag: 0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -51,6 +51,9 @@ Añadido soporte para Buffer.
 = 0.5 =
 Arreglo de error en la publicación del contenido completo.
 
+= 0.6 =
+Añadido soporte para entradas programadas.
+
 == Upgrade Notice ==
 
 = 0.2 =
@@ -64,3 +67,6 @@ Se ha añadido soporte para BufferApp.com.
 
 = 0.5 =
 Arreglo de error con la publicación del contenido sin resumir.
+
+= 0.6 =
+Se ha añadido soporte para entradas programadas.
