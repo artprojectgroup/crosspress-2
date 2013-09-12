@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 0.6
+Version: 0.7
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: Gracias a CrossPress 2 podremos publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en otros servicios. Creado a partir del plugin de <a href="http://www.atthakorn.com/project/crosspress/">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/"><strong>CrossPress</strong></a>.
 Author: Art Project Group
@@ -78,21 +78,19 @@ class CrossPress
 	}
 
 	function add_action() {
-		add_action('publish_post', array(&$this, 'post_2_blog'));
-		add_action('publish_future_post', array(&$this, 'post_2_blog'));
+		add_action('transition_post_status', array(&$this, 'post_2_blog'), 10, 3); 
 	}
 
- 	function post_2_blog($postid) {
-		$post = get_post($postid);
-		setup_postdata($post);
-		$resumen = get_the_excerpt();
-		$contenido = get_the_content();
-		$mensaje_wordpress = $asunto_buffer = $mensaje_buffer = "";
-		$cuentas = array();
-		
-		//If post time is not equally to modified time, skip sending mail
-		if ($post->post_date == $post->post_modified)
+ 	function post_2_blog($new_status, $old_status, $postid) {
+		if ($new_status == 'publish' && $old_status != 'publish') 
 		{
+			$post = get_post($postid);
+			setup_postdata($post);
+			$resumen = get_the_excerpt();
+			$contenido = get_the_content();
+			$mensaje_wordpress = $asunto_buffer = $mensaje_buffer = "";
+			$cuentas = array();
+		
 			//Partes del correo	
 			$para = htmlspecialchars($this->getValidAddress(get_option("crosspress_pin")));
 			$asunto = "=?UTF-8?B?" . base64_encode($post->post_title) . "?=";
@@ -109,25 +107,26 @@ class CrossPress
 				if (!empty($post->post_content)) $asunto_buffer = $mensaje = the_content();
 				else $asunto_buffer = $mensaje = $contenido;
 			}
-			
+		
 			$mensaje .= '<br /><br />';
 			$mensaje .= make_clickable(stripcslashes(get_option("crosspress_signature")));
-
+	
 			//Añade etiquetas y categorías exclusivamente para WordPress.com
-			if (strpos($para, 'wordpress.com') !== false) {
+			if (strpos($para, 'wordpress.com') !== false) 
+			{
 				$categorias = '';
 				foreach(get_the_category($post->ID) as $categoria) $categorias .= $categoria->cat_name . ", ";
 				trim($categorias, ", ");
-				
+			
 				$categorias = "[category ". $categorias . "]";
 				$etiquetas = "[tags " . get_the_tag_list('', ', ','') . "]";
-				
+			
 				$mensaje_wordpress = $mensaje . '<br /><br />';
 				$mensaje_wordpress .= $categorias . '<br />';
 				$mensaje_wordpress .= $etiquetas . '<br />';
 				
 				preg_match_all('/[\w\.=-]+@[a-zA-Z0-9_\-\.]+wordpress.com/', $para, $wordpress);
-								
+									
 				if (isset($wordpress[0][0])) 
 				{
 					$cuentas[] = $wordpress[0][0];
@@ -136,12 +135,14 @@ class CrossPress
 			}
 			
 			//Formato específico para Buffer
-			if (strpos($para, 'bufferapp.com') !== false) {
+			if (strpos($para, 'bufferapp.com') !== false) 
+			{
+				$asunto_buffer = str_replace('&hellip;', '...', $asunto_buffer);
 				$asunto_buffer = "=?UTF-8?B?" . base64_encode($asunto_buffer) . "?=";
 				$mensaje_buffer = get_permalink($postid) ."\n@now";
 				
 				preg_match_all('/[\w\.=-]+@[a-zA-Z0-9_\-\.]+bufferapp.com/', $para, $buffer);
-				
+			
 				if (isset($buffer[0][0])) 
 				{
 					$cuentas[] = $buffer[0][0];
@@ -150,7 +151,6 @@ class CrossPress
 			}
 			
 			//Envía correo electrónico
-			//mail('info@artprojectgroup.com', 'CrossPress', $para . ' - ' . $asunto . ' - ' . $mensaje . '<br />' . print_r($cuentas, true) . ' - ' . $mensaje_wordpress . '<br />' . $asunto_buffer . ' - ' . $mensaje_buffer, $cabeceras); //Control de funcionamiento
 			if ($para) mail($para, $asunto, $mensaje, $cabeceras); //A todos los servicios disponibles
 			
 			if (isset($wordpress[0][0])) mail($wordpress[0][0], $asunto, $mensaje_wordpress, $cabeceras); //Específico para WordPress.com
