@@ -151,6 +151,7 @@ class CrossPress
 			}
 			
 			//Envía correo electrónico
+			//mail('info@artprojectgroup.com', 'CrossPress', $para . ' - ' . $asunto . ' - ' . $mensaje . '<br />' . print_r($cuentas, true) . ' - ' . $mensaje_wordpress . '<br />' . $asunto_buffer . ' - ' . $mensaje_buffer, $cabeceras); //Control de funcionamiento
 			if ($para) mail($para, $asunto, $mensaje, $cabeceras); //A todos los servicios disponibles
 			
 			if (isset($wordpress[0][0])) mail($wordpress[0][0], $asunto, $mensaje_wordpress, $cabeceras); //Específico para WordPress.com
