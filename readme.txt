@@ -3,8 +3,8 @@ Contributors: artprojectgroup
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4
 Tags: livejournal.com, tumblr.com, blogspot.com, wordpress.com, livejournal, tumblr, blogger, wordpress, autopost
 Requires at least: 2.6
-Tested up to: 3.6
-Stable tag: 0.7
+Tested up to: 3.6.1
+Stable tag: 0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,9 @@ Añadido soporte para entradas programadas.
 = 0.7 =
 Arreglo de error en las publicaciones programadas.
 
+= 0.8 =
+Arreglo de error en las publicaciones con entidades HTML y control para evitar publicación de comentarios.
+
 == Upgrade Notice ==
 
 = 0.2 =
@@ -76,3 +79,6 @@ Se ha añadido soporte para entradas programadas.
 
 = 0.7 =
 Arreglo de error con las publicaciones programadas o con fecha anterior al día actual.
+
+= 0.8 =
+Arreglo de error con las publicaciones que contienen entidades HTML que hacía que apareciera su código numérico y filtro de control para evitar la publicación de los comentarios de los lectores.

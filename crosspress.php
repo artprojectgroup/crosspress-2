@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 0.7
+Version: 0.8
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: Gracias a CrossPress 2 podremos publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en otros servicios. Creado a partir del plugin de <a href="http://www.atthakorn.com/project/crosspress/">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/"><strong>CrossPress</strong></a>.
 Author: Art Project Group
@@ -82,7 +82,7 @@ class CrossPress
 	}
 
  	function post_2_blog($new_status, $old_status, $postid) {
-		if ($new_status == 'publish' && $old_status != 'publish') 
+		if ($new_status == "publish" && $old_status != "publish" && get_post_type($postid) != "feedback") 
 		{
 			$post = get_post($postid);
 			setup_postdata($post);
@@ -93,7 +93,7 @@ class CrossPress
 		
 			//Partes del correo	
 			$para = htmlspecialchars($this->getValidAddress(get_option("crosspress_pin")));
-			$asunto = "=?UTF-8?B?" . base64_encode($post->post_title) . "?=";
+			$asunto = "=?UTF-8?B?" . base64_encode(html_entity_decode($post->post_title, ENT_QUOTES, 'UTF-8')) . "?=";
 			$cabeceras = "Content-Type: text/html;charset=utf8";
 			
 			if (get_option('crosspress_summary') == "1")
@@ -137,8 +137,7 @@ class CrossPress
 			//Formato específico para Buffer
 			if (strpos($para, 'bufferapp.com') !== false) 
 			{
-				$asunto_buffer = str_replace('&hellip;', '...', $asunto_buffer);
-				$asunto_buffer = "=?UTF-8?B?" . base64_encode($asunto_buffer) . "?=";
+				$asunto_buffer = "=?UTF-8?B?" . base64_encode(html_entity_decode($asunto_buffer, ENT_QUOTES, 'UTF-8')) . "?=";
 				$mensaje_buffer = get_permalink($postid) ."\n@now";
 				
 				preg_match_all('/[\w\.=-]+@[a-zA-Z0-9_\-\.]+bufferapp.com/', $para, $buffer);
