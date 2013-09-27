@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 0.8
+Version: 0.9
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: Gracias a CrossPress 2 podremos publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en otros servicios. Creado a partir del plugin de <a href="http://www.atthakorn.com/project/crosspress/">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/"><strong>CrossPress</strong></a>.
 Author: Art Project Group
@@ -115,11 +115,12 @@ class CrossPress
 			if (strpos($para, 'wordpress.com') !== false) 
 			{
 				$categorias = '';
-				foreach(get_the_category($post->ID) as $categoria) $categorias .= $categoria->cat_name . ", ";
-				trim($categorias, ", ");
-			
-				$categorias = "[category ". $categorias . "]";
-				$etiquetas = "[tags " . get_the_tag_list('', ', ','') . "]";
+				foreach(get_the_category($postid) as $categoria) $categorias .= $categoria->name . ", ";
+				$categorias = "[category ". rtrim($categorias, ", ") . "]";
+				
+				$etiquetas = '';
+				foreach(get_the_tags($postid) as $etiqueta) $etiquetas .= $etiqueta->name . ", ";
+				$etiquetas = "[tags " . rtrim($etiquetas, ", ") . "]";
 			
 				$mensaje_wordpress = $mensaje . '<br /><br />';
 				$mensaje_wordpress .= $categorias . '<br />';

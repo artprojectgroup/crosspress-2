@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: livejournal.com, tumblr.com, blogspot.com, wordpress.com, livejournal, tumblr, blogger, wordpress, autopost
 Requires at least: 2.6
 Tested up to: 3.6.1
-Stable tag: 0.8
+Stable tag: 0.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -60,6 +60,9 @@ Arreglo de error en las publicaciones programadas.
 = 0.8 =
 Arreglo de error en las publicaciones con entidades HTML y control para evitar publicación de comentarios.
 
+= 0.9 =
+Arreglo de error en la publicación de las etiquetas en WordPress.com.
+
 == Upgrade Notice ==
 
 = 0.2 =
@@ -82,3 +85,6 @@ Arreglo de error con las publicaciones programadas o con fecha anterior al día 
 
 = 0.8 =
 Arreglo de error con las publicaciones que contienen entidades HTML que hacía que apareciera su código numérico y filtro de control para evitar la publicación de los comentarios de los lectores.
+
+= 0.9 =
+Arreglo de error con las publicaciones de las etiquetas en WordPress.com.
