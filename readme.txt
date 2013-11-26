@@ -64,6 +64,7 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
  * Publicación de páginas.
  * Publicación de imagen.
  * Publicación de extracto con enlaces.
+ * Personalización del enlace en las publicaciones.
 * Añadido soporte para Tumblr.
 * Añadido soporte multilenguaje.
 = 0.9 =
@@ -80,7 +81,7 @@ Arreglo de error con la publicación del contenido sin resumir.
 = 0.4 =
 Añadido soporte para BufferApp.com.
 = 0.3 =
-Añadida una nueva sección para poder personalizar el texto en los resúmenes.
+Añadida una nueva sección para poder personalizar el enlace en los extractos.
 = 0.2 =
 Arreglo de pequeños errores en el código fuente.
 = 0.1 =
@@ -102,7 +103,7 @@ Arreglo de error con la publicación del contenido sin resumir.
 = 0.4 =
 Añadido soporte para BufferApp.com.
 = 0.3 =
-Añadida una nueva sección para poder personalizar el texto en los resúmenes.
+Añadida una nueva sección para poder personalizar el enlace en los extractos.
 = 0.2 =
 Arreglo de pequeños errores en el código fuente.
 
