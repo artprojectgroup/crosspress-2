@@ -1,0 +1,251 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: CrossPress 2 v1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2013-11-26 08:09:59+0000\n"
+"Last-Translator: admin <info@artprojectgroup.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#. translators: plugin header field 'Name'
+#: crosspress.php:0
+#@ crosspress
+msgid "CrossPress 2"
+msgstr ""
+
+#. translators: plugin header field 'PluginURI'
+#: crosspress.php:0
+#@ crosspress
+msgid "http://wordpress.org/plugins/crosspress-2/"
+msgstr ""
+
+#. translators: plugin header field 'Author'
+#: crosspress.php:0
+#@ crosspress
+msgid "Art Project Group"
+msgstr ""
+
+#. translators: plugin header field 'AuthorURI'
+#: crosspress.php:0
+#@ crosspress
+msgid "http://www.artprojectgroup.es/"
+msgstr ""
+
+#. translators: plugin header field 'Version'
+#: crosspress.php:0
+#@ crosspress
+msgid "1.0"
+msgstr ""
+
+#: crosspress.php:33
+#@ crosspress
+msgid "Visit the official plugin website"
+msgstr "Visitar la web oficial del plugin"
+
+#: crosspress.php:34
+#: crosspress.php:323
+#@ crosspress
+msgid "https://www.paypalobjects.com/en_GB/i/btn/btn_donate_LG.gif"
+msgstr "https://www.paypalobjects.com/es_ES/i/btn/btn_donate_LG.gif"
+
+#: crosspress.php:43
+#@ crosspress
+msgid "Settings"
+msgstr "Ajustes"
+
+#: crosspress.php:90
+#: crosspress.php:317
+#@ crosspress
+msgid "CrossPress Options."
+msgstr "Opciones de CrossPress."
+
+#: crosspress.php:320
+#@ crosspress
+msgid "Options saved."
+msgstr "Opciones guardadas."
+
+#: crosspress.php:322
+#@ crosspress
+msgid "If you enjoyed and find helpful this plugin, please make a donation."
+msgstr "Si te ha gustado y resultado útil este plugin, por favor, haz una donación. "
+
+#: crosspress.php:334
+#@ crosspress
+msgid "Each email account must be entered onto a new line."
+msgstr "Cada cuenta de correo debe introducirse en una línea nueva."
+
+#: crosspress.php:335
+#@ crosspress
+msgid "Tested on: "
+msgstr "Comprobado su funcionamiento en: "
+
+#: crosspress.php:335
+#@ crosspress
+msgid "and"
+msgstr "y"
+
+#: crosspress.php:339
+#@ crosspress
+msgid "Pages:"
+msgstr "Páginas:"
+
+#: crosspress.php:340
+#@ crosspress
+msgid "Post pages."
+msgstr "Publicar páginas."
+
+#: crosspress.php:351
+#@ crosspress
+msgid "Excerpt:"
+msgstr "Extracto:"
+
+#: crosspress.php:352
+#@ crosspress
+msgid "Post excerpt."
+msgstr "Publicar extracto."
+
+#: crosspress.php:361
+#: crosspress.php:412
+#: crosspress.php:414
+#@ crosspress
+msgid "Continue reading on "
+msgstr "Sigue leyendo en "
+
+#: crosspress.php:363
+#: crosspress.php:413
+#: crosspress.php:415
+#@ crosspress
+msgid "Original source: "
+msgstr "Fuente original: "
+
+#: crosspress.php:366
+#@ crosspress
+msgid "publication-name"
+msgstr "nombre-de-la-publicacion"
+
+#: crosspress.php:367
+#@ crosspress
+msgid "Publication name"
+msgstr "Nombre de la publicación"
+
+#: crosspress.php:123
+#: crosspress.php:368
+#@ crosspress
+msgid " in "
+msgstr " en "
+
+#: crosspress.php:371
+#@ crosspress
+msgid "Excerpt Link:"
+msgstr "Enlace del extracto:"
+
+#: crosspress.php:373
+#@ crosspress
+msgid "You can customize, if desired, the link after the excerpt of the publication."
+msgstr "Puede personalizar, si lo desea, el enlace que aparece tras el extracto de la publicación."
+
+#: crosspress.php:373
+#: crosspress.php:380
+#@ crosspress
+msgid "It's very important to leave a blank space at the end."
+msgstr "Es muy importante que deje un espacio en blanco al final."
+
+#: crosspress.php:374
+#@ crosspress
+msgid "The excerpt link now looks like this:"
+msgstr "El enlace del extracto tiene actualmente esta apariencia:"
+
+#: crosspress.php:378
+#@ crosspress
+msgid "Post link:"
+msgstr "Enlace de la publicación:"
+
+#: crosspress.php:380
+#@ crosspress
+msgid "If you wish you can customize the link that appears after the full post. It's very important to leave a blank space."
+msgstr "Puede personalizar, si lo desea, el enlace que aparece tras la publicación completa."
+
+#: crosspress.php:381
+#@ crosspress
+msgid "The post link now looks like this:"
+msgstr "El enlace de la publicación tiene actualmente esta apariencia:"
+
+#: crosspress.php:385
+#@ crosspress
+msgid "Signature:"
+msgstr "Firma:"
+
+#: crosspress.php:387
+#@ crosspress
+msgid "If desired you can add a signature. Introduced URLs will be converted into links automatically."
+msgstr "Puede añadir una firma si lo desea. Las URLs introducidas serán convertidas en enlaces automáticamente."
+
+#: crosspress.php:391
+#@ crosspress
+msgid "Save &raquo;"
+msgstr "Guardar &raquo;"
+
+#. translators: plugin header field 'Description'
+#: crosspress.php:0
+#@ crosspress
+msgid "With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href=\"http://www.atthakorn.com/project/crosspress/\" target=\"_blank\">Atthakorn Chanthong</a> <a href=\"http://wordpress.org/plugins/crosspress/\" target=\"_blank\"><strong>CrossPress</strong></a> plugin."
+msgstr "Con CrossPress 2 puedes publicar automáticamente en otros servicios las entradas que publicas en tu sitio web bajo WordPress. Creado a partir del plugin de <a href=\"http://www.atthakorn.com/project/crosspress/\" target=\"_blank\">Atthakorn Chanthong</a> <a href=\"http://wordpress.org/plugins/crosspress/\" target=\"_blank\"><strong>CrossPress</strong></a>."
+
+#: crosspress.php:343
+#@ crosspress
+msgid "Image:"
+msgstr "Imagen:"
+
+#: crosspress.php:344
+#@ crosspress
+msgid "Post image."
+msgstr "Publicar imagen."
+
+#: crosspress.php:355
+#@ crosspress
+msgid "Excerpt with links:"
+msgstr "Extracto con enlaces:"
+
+#: crosspress.php:356
+#@ crosspress
+msgid "Post excerpt with links."
+msgstr "Publicar extracto con enlaces."
+
+#: crosspress.php:347
+#@ crosspress
+msgid "Full content:"
+msgstr "Contenido completo:"
+
+#: crosspress.php:348
+#@ crosspress
+msgid "Post full content."
+msgstr "Publicar contenido completo."
+
+#: crosspress.php:356
+#@ crosspress
+msgid "Except for"
+msgstr "Excepto en"
+
+#: crosspress.php:331
+#@ crosspress
+msgid "Email accounts of services:"
+msgstr "Cuentas de correo de los servicios:"
+
+#: crosspress.php:333
+#@ crosspress
+msgid "Emails that lets you automatically post on each service."
+msgstr "Correos electrónicos que te permiten publicar automáticamente en cada servicio."
+

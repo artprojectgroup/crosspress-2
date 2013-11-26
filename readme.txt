@@ -1,90 +1,131 @@
 === CrossPress 2 ===
 Contributors: artprojectgroup
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4
-Tags: livejournal.com, tumblr.com, blogspot.com, wordpress.com, livejournal, tumblr, blogger, wordpress, autopost
+Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer
 Requires at least: 2.6
-Tested up to: 3.6.1
-Stable tag: 0.9
+Tested up to: 3.7.1
+Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Publica automáticamente las entradas publicadas en nuestro sitio web en otros servicios: Buffer, WordPress, Blogger, LiveJournal, Tumblr...
+Publica automáticamente las entradas publicadas en nuestro sitio web en otros servicios como WordPress.com, Blogger, Google+ vía Buffer y Tumblr.
 
 == Description ==
+**CrossPress 2** nos ofrece la posibilidad de publicar automáticamente todas las entradas que publiquemos en nuestro sitio web bajo WordPress en WordPress.com, Blogpsot.com, Google+ víaBufferApp.com y Tumblr.com.
 
-Gracias a **CrossPress 2** aparecerán un nuevo elemento en Ajustes que nos permitirá introducir los código PIN, cuentas de correo electrónico, para poder publicar automáticamente las entradas que publiquemos en nuestro sitio web bajo WordPress en BufferApp.com, WordPress.com, Blogpsot.com, LiveJournal.com y tumblr.com, entre otros muchos servicios.
+= Características =
+* Totalmente automático.
+* Permite la publicación de las nuevas páginas.
+* Permite publicar la fotografía destacada en la publicación o página.
+* Permite publicar el extracto, con o sin enlaces, o el texto completo de las entradas y páginas.
+* Incluye las categorías y etiquetas en las publicaciones en WordPress.com.
+* Permite la personalización de los textos de los enlaces a la entrada original para el extracto y el texto completo.
+* Incluye la posibilidad de añadir una firma a las publicaciones remotas.
 
-Puede obtener más información sobre **CrossPress 2** en nuestro sitio web oficial: http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2
+= Origen =
+**CrossPress 2** ha sido programado a partir del plugin [*CrossPress*](http://wordpress.org/plugins/crosspress/) de [Atthakorn Chanthong](http://www.atthakorn.com/), que, a pesar de su brillantez, no ofrecían todas las características que necesitábamos. Aún así su trabajo ha sido completamente imprescindible para la realización de este plugin.
+
+= Más información =
+En nuestro sitio web oficial puede obtener más información sobre [**CrossPress 2**](http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2). 
+
+= Comentarios =
+No olvides dejarnos tu comentario en:
+
+* [CrossPress 2](http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2) en Art Project Group.
+* [Art Project Group](https://www.facebook.com/artprojectgroup) en Facebook.
+* [@artprojectgroup](https://twitter.com/artprojectgroup) en Twitter.
+* [+ArtProjectGroupES](https://twitter.com/artprojectgroup) en Google+.
+
+= Más plugins =
+Recuerda que puedes encontrar más plugin para WordPress en [Art Project Group](http://www.artprojectgroup.es/plugins-para-wordpress/) y en nuestro perfil en [WordPress](http://profiles.wordpress.org/artprojectgroup/).
 
 == Installation ==
-
-1. Subir la carpeta `crosspress-2` al directorio `/wp-content/plugins/`.
-2. Activar el plugin a través del menú 'Plugins' en el Panel de Administración de WordPress.
-3. Configurar el plugin en Ajustes -> CrossPress.
+1. Puedes:
+ * Subir la carpeta `crosspress-2` al directorio `/wp-content/plugins/` vía FTP. 
+ * Subir el archivo ZIP completo vía *Plugins -> Añadir nuevo -> Subir* en el Panel de Administración de tu instalación de WordPress.
+ * Buscar **CrossPress 2** en el buscador disponible en *Plugins -> Añadir nuevo* y pulsar el botón *Instalar ahora*.
+2. Activar el plugin a través del menú *Plugins* en el Panel de Administración de WordPress.
+3. Configurar el plugin en *Ajustes -> CrossPress* o a través del botón *Ajustes*.
+4. Listo, ahora ya puedes disfrutar de él, y si te gusta y te resulta útil, hacer una [*donación*](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4).
 
 == Frequently asked questions ==
-
 = ¿Cómo se configura? =
-
-Sólo hay que ir a Ajustes -> CrossPress y añadir los código PIN, cuentas de correo electrónico, proporcionadas por cada uno de los servicios donde queremos publicar: BufferApp.com, WordPress.com, Blogspot.com, LiveJournal.com o tumblr.com, entre otros.
+Sólo hay que ir a *Ajustes -> CrossPress* y añadir los código PIN, cuentas de correo electrónico, proporcionadas por cada uno de los servicios donde queremos publicar: BufferApp.com, WordPress.com, Blogspot.com, LiveJournal.com o tumblr.com, entre otros.
 
 Podemos añadir una firma personalizada, donde las URLs que introduzcamos se convertirán automáticamente en enlaces, y elegir si queremos que se publique el contenido íntegro de nuestra entrada o sólo un resumen.
 
 == Screenshots ==
-
-1. Captura de pantalla de CrossPress 2.
+1. Captura de pantalla de **CrossPress 2**.
 
 == Changelog ==
-
+= 1.0 =
+* Rediseño del formulario de configuración.
+* Creación de nuevos campos de selección:
+ * Publicación de imagen.
+ * Publicación de extracto con enlaces.
+* Añadido soporte para Tumblr.
+* Añadido soporte multilenguaje.
+= 0.9 =
+Arreglo de error con las publicaciones de las etiquetas en WordPress.com.
+= 0.8 =
+* Arreglo de error con las publicaciones que contienen entidades HTML que hacía que apareciera su código numérico.
+* Filtro de control para evitar la publicación de los comentarios de los lectores.
+= 0.7 =
+Arreglo de error con las publicaciones programadas o con fecha anterior al día actual.
+= 0.6 =
+Añadido soporte para entradas programadas.
+= 0.5 =
+Arreglo de error con la publicación del contenido sin resumir.
+= 0.4 =
+Añadido soporte para BufferApp.com.
+= 0.3 =
+Añadida una nueva sección para poder personalizar el texto en los resúmenes.
+= 0.2 =
+Arreglo de pequeños errores en el código fuente.
 = 0.1 =
 Versión inicial.
 
-= 0.2 =
-Versión inicial mejorada.
-
-= 0.3 =
-Añadida sección de reseña.
-
-= 0.4 =
-Añadido soporte para Buffer.
-
-= 0.5 =
-Arreglo de error en la publicación del contenido completo.
-
+== Upgrade Notice ==
+= 1.0 =
+Rediseño del formulario de configuración, nuevos campos de selección, soporte para Tumblr y añadido soporte multilenguaje.
+= 0.9 =
+Arreglo de error con las publicaciones de las etiquetas en WordPress.com.
+= 0.8 =
+Arreglo de error con las publicaciones que contienen entidades HTML que hacía que apareciera su código numérico y filtro de control para evitar la publicación de los comentarios de los lectores.
+= 0.7 =
+Arreglo de error con las publicaciones programadas o con fecha anterior al día actual.
 = 0.6 =
 Añadido soporte para entradas programadas.
-
-= 0.7 =
-Arreglo de error en las publicaciones programadas.
-
-= 0.8 =
-Arreglo de error en las publicaciones con entidades HTML y control para evitar publicación de comentarios.
-
-= 0.9 =
-Arreglo de error en la publicación de las etiquetas en WordPress.com.
-
-== Upgrade Notice ==
-
+= 0.5 =
+Arreglo de error con la publicación del contenido sin resumir.
+= 0.4 =
+Añadido soporte para BufferApp.com.
+= 0.3 =
+Añadida una nueva sección para poder personalizar el texto en los resúmenes.
 = 0.2 =
 Arreglo de pequeños errores en el código fuente.
 
-= 0.3 =
-Se ha añadido una nueva sección para poder personalizar el texto en los resúmenes.
+==Traducciones ==
+* *English*: by **Art Project Group** (default language).
+* *Español*: por **Art Project Group**.
 
-= 0.4 =
-Se ha añadido soporte para BufferApp.com.
+== ¿Por qué está esta página en español? ==
+Mientras WordPress no nos permita a los desarrolladores realizar esta página en más de un idioma, elegiremos siempre el español.
 
-= 0.5 =
-Arreglo de error con la publicación del contenido sin resumir.
+A pesar de que es una apuesta muy arriesgada y de que reduce mucho las posibilidades de propagación de nuestros plugins, creemos que la comunidad hispana de WordPress es lo suficientemente amplia como para abocarla al idioma inglés hasta el final de los tiempos.
 
-= 0.6 =
-Se ha añadido soporte para entradas programadas.
+Por ello regalamos a esa gran comunidad hispana nuestros plugins con interfaces, instrucciones, tutoriales, soporte y páginas web en *WordPress.org* en español.
 
-= 0.7 =
-Arreglo de error con las publicaciones programadas o con fecha anterior al día actual.
+Esperamos que os guste nuestra iniciativa.
 
-= 0.8 =
-Arreglo de error con las publicaciones que contienen entidades HTML que hacía que apareciera su código numérico y filtro de control para evitar la publicación de los comentarios de los lectores.
+== Donación ==
+¿Te ha gustado y te ha resultado útil **CrossPress 2** en tu sitio web? Te agradeceríamos una [pequeña donación](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4) que nos ayudará a seguir mejorando este plugin y a crear más plugins totalmente gratuitos para toda la comunidad WordPress.
 
-= 0.9 =
-Arreglo de error con las publicaciones de las etiquetas en WordPress.com.
+== Gracias ==
+* A [Atthakorn Chanthong](http://www.atthakorn.com/) por el gran plugin que ha inspirado **CrossPress 2**.
+* A todos los que lo usáis.
+* A todos los que ayudáis a mejorarlo.
+* A todos los que realizáis donaciones.
+* A todos los que nos animáis con vuestros comentarios.
+
+¡Muchas gracias a todos!
