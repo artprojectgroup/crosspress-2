@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.0
+Version: 1.1
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -109,10 +109,11 @@ class CrossPress {
 			$contenido = get_the_content(); //Contenido
 			$contenido = str_replace('\]\]\>', ']]>', $contenido);
 			$contenido = preg_replace('@<script[^>]*?>.*?</script>@si', '', $contenido);
+			$contenido = apply_filters('the_content', $contenido);
 			
 			//Tratamos la imagen
 			if (has_post_thumbnail($entrada->ID) && get_option('crosspress_imagen') == "1") $imagen = get_post_thumbnail_id($entrada->ID); //Imagen destacada
-			else if (CP_devuelve_la_imagen($entrada->ID)) $imagen = CP_devuelve_la_imagen($entrada->ID); //Primera imagen de la publicación
+			else if (CP_devuelve_la_imagen($entrada->ID, $contenido)) $imagen = CP_devuelve_la_imagen($entrada->ID, $contenido); //Primera imagen de la publicación
 			$imagen = CP_procesa_la_imagen($imagen);
 
 			//Creamos el enlace
@@ -127,7 +128,9 @@ class CrossPress {
 			foreach ($wp_filter['excerpt_more'][10] as $clave => $valor) $finalizacion_de_extracto = trim($clave());
 			foreach ($wp_filter['excerpt_length'][10] as $clave => $valor) $longitud_de_extracto = trim($clave());
 
-			$contenido_filtrado = strip_tags($contenido, '<a>');
+			$contenido_filtrado = preg_replace("/\[caption.*\[\/caption\]/", '', $contenido);
+			$contenido_filtrado = strip_tags($contenido_filtrado, '<a>');
+			$contenido_filtrado = preg_replace("/<[^\/>][^>]*><\/[^>]+>/", '', $contenido_filtrado);
 			$palabras = explode(' ', $contenido_filtrado, $longitud_de_extracto + 1);
 			$extracto_con_enlaces = CP_extracto_con_enlaces($palabras, $longitud_de_extracto); //Extracto inicial
 			if (preg_match_all("/<a\s[^>]*href=(\"??)([^\" >]*?)\\1[^>]*>(.*)<\/a>/siU", $extracto_con_enlaces, $enlaces, PREG_SET_ORDER)) //Si hay enlaces en el extracto, hay que ampliarlo
@@ -159,7 +162,7 @@ class CrossPress {
 				foreach(get_the_tags($entrada->ID) as $etiqueta) $etiquetas .= $etiqueta->name . ", ";
 				$etiquetas = "[tags " . rtrim($etiquetas, ", ") . "]";
 			
-				$mensaje_wordpress = $imagen . $mensaje . "<br />" . $categorias . "<br />" . $etiquetas;
+				$mensaje_wordpress = $imagen . "<br />" . $mensaje . "<br />" . $categorias . "<br />" . $etiquetas;
 				
 				preg_match_all('/[\w\.=-]+@[a-zA-Z0-9_\-\.]+wordpress.com/', $para, $wordpress);
 				if (isset($wordpress[0][0])) $cuentas[] = $wordpress[0][0];
@@ -182,7 +185,7 @@ class CrossPress {
 				foreach(get_the_tags($entrada->ID) as $etiqueta) $etiquetas .= "#" . $etiqueta->name . " , ";
 				$etiquetas = rtrim($etiquetas, " , ");
 
-				$mensaje_tumblr = html_entity_decode($imagen . $mensaje, ENT_QUOTES, 'UTF-8');// . "<br />" . html_entity_decode($etiquetas, ENT_QUOTES, 'UTF-8');
+				$mensaje_tumblr = html_entity_decode($imagen . "<br />" . $mensaje, ENT_QUOTES, 'UTF-8');// . "<br />" . html_entity_decode($etiquetas, ENT_QUOTES, 'UTF-8');
 				//html_entity_decode(CP_salto_de_linea($imagen . $mensaje . "<br /><br />" . $etiquetas), ENT_QUOTES, 'UTF-8');
 				
 				preg_match_all('/[\w\.=-]+@tumblr.com/', $para, $tumblr);
@@ -192,7 +195,7 @@ class CrossPress {
 			$para = htmlspecialchars(CP_procesa_cuentas(get_option("crosspress_cuenta"), $cuentas)); //Quitamos las cuentas de WordPress.com, BufferApp.com y Tumblr.com, que se envían de forma distinta
 			
 			//Envía correo electrónico			
-			if ($para) mail($para, $asunto, html_entity_decode($imagen . $mensaje, ENT_QUOTES, 'UTF-8'), $cabeceras_html); //A todos los servicios disponibles
+			if ($para) mail($para, $asunto, html_entity_decode($imagen . "<br />" . $mensaje, ENT_QUOTES, 'UTF-8'), $cabeceras_html); //A todos los servicios disponibles
 			
 			if (isset($wordpress[0][0])) mail($wordpress[0][0], $asunto, $mensaje_wordpress, $cabeceras_html); //Específico para WordPress.com
 			if (isset($buffer[0][0])) mail($buffer[0][0], $asunto_buffer, $mensaje_buffer, $cabeceras); //Específico para BufferApp.com
@@ -207,7 +210,7 @@ class CrossPress {
 	//Pinta el formulario de configuración
 	function CP_formulario_de_configuracion() {
 		CP_actualizador();
-		//$this->CP_publica("publish", "temporal", 2375);
+		//$this->CP_publica("publish", "temporal", 2410);
 ?>
 			<style type="text/css">
 			div.donacion {
@@ -484,7 +487,7 @@ function CP_cierra_enlaces ($html) {
 }
 
 //Buscamos la primera imagen
-function CP_devuelve_la_imagen($entrada) {
+function CP_devuelve_la_imagen($entrada, $contenido) {
 	$argumentos = array(
 		'numberposts' => 1,
 		'order' => 'ASC',
@@ -496,6 +499,20 @@ function CP_devuelve_la_imagen($entrada) {
 
 	$adjuntos = get_children($argumentos);
 	if ($adjuntos) foreach ($adjuntos as $adjunto) return $adjunto->ID;
+	
+	//Si no encuentra imagen adjunta, la buscamos en el contenido
+	preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $contenido, $imagenes);
+
+	if (isset($imagenes[1][0])) 
+	{
+		global $wpdb;
+	
+		$adjuntos = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $wpdb->prefix . "posts" . " WHERE guid='%s';", preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $imagenes[1][0]))); 
+
+		return $adjuntos[0]; 
+	}
+	
+	return NULL;
 }
 
 //Procesa la imagen
@@ -503,11 +520,11 @@ function CP_procesa_la_imagen($imagen) {
 	if (function_exists('mfrh_rename_media_on_publish')) mfrh_rename_media_on_publish($entrada->ID); //Renombra la imagen si existe y está activo Media File Renamer
 	$alt = get_post_meta($imagen, '_wp_attachment_image_alt', true);
 	$tamano = wp_get_attachment_image_src($imagen, 'large');
-	if ($tamano[2] > $tamano[1]) $tamano = wp_get_attachment_image_src($imagen, 'medium');
+	//if ($tamano[2] > $tamano[1]) $tamano = wp_get_attachment_image_src($imagen, 'medium');
 	$imagen = $tamano[0];
 	$src = "data:image/" . pathinfo($imagen, PATHINFO_EXTENSION) . ";base64," . base64_encode(file_get_contents($imagen));
 
-	return '<img src="' . $imagen . '" alt="' . $alt . '" style="max-width:100%; float:left;" />';
+	return '<img src="' . $imagen . '" alt="' . $alt . '" style="max-width:100%;display:block;text-align:center;" />';
 }
 
 //Quita los saltos de línea HTML
