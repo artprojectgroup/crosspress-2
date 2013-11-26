@@ -61,6 +61,7 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 = 1.0 =
 * Rediseño del formulario de configuración.
 * Creación de nuevos campos de selección:
+ * Publicación de páginas.
  * Publicación de imagen.
  * Publicación de extracto con enlaces.
 * Añadido soporte para Tumblr.
