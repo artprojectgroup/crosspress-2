@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.1.1
+Version: 1.1.2
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -109,17 +109,21 @@ class CrossPress {
 			$contenido = get_the_content(); //Contenido
 			$contenido = str_replace('\]\]\>', ']]>', $contenido);
 			$contenido = preg_replace('@<script[^>]*?>.*?</script>@si', '', $contenido);
+			$contenido = preg_replace("#(<\s*a\s+[^>]*href\s*=\s*[\"'])(?!http)[\/]?([^\"'>]+)([\"'>]+)#", '$1' . home_url('/') . '$2$3', $contenido); //Convertimos en absolutos los enlaces relativos
 			$contenido = apply_filters('the_content', $contenido);
 			
 			//Tratamos la imagen
 			if (has_post_thumbnail($entrada->ID) && get_option('crosspress_imagen') == "1") $imagen = get_post_thumbnail_id($entrada->ID); //Imagen destacada
 			else if (CP_devuelve_la_imagen($entrada->ID, $contenido)) $imagen = CP_devuelve_la_imagen($entrada->ID, $contenido); //Primera imagen de la publicación
-			$imagen = CP_procesa_la_imagen($imagen);
 
 			//Creamos el enlace
 			$enlace = get_permalink($entrada->ID);
 			$enlace_html = '<a href="' . $enlace . '" title="' . $entrada->post_title . __(' in ', 'crosspress') . get_bloginfo('name') . '">';
-			$imagen = $enlace_html . $imagen . '</a>';
+			if ($imagen)
+			{		
+				$imagen = CP_procesa_la_imagen($imagen);
+				$imagen = $enlace_html . $imagen . '</a>';
+			}
 			$enlace_html .= $entrada->post_title . '</a>.';
 			
 			//Creamos un extracto con los enlaces incluidos
@@ -201,7 +205,7 @@ class CrossPress {
 			if (isset($buffer[0][0])) mail($buffer[0][0], $asunto_buffer, $mensaje_buffer, $cabeceras); //Específico para BufferApp.com
 			if (isset($tumblr[0][0])) mail($tumblr[0][0], $asunto, $mensaje_tumblr, $cabeceras_html); //Específico para Tumblr.com
 
-			//mail('info@artprojectgroup.com', $asunto, $mensaje_tumblr, $cabeceras_html); //Control de funcionamiento
+			//mail('info@artprojectgroup.com', $asunto, html_entity_decode($imagen . "<br />" . $mensaje, ENT_QUOTES, 'UTF-8'), $cabeceras_html); //Control de funcionamiento
 		}
 	
 		return $objeto_entrada;
@@ -210,6 +214,7 @@ class CrossPress {
 	//Pinta el formulario de configuración
 	function CP_formulario_de_configuracion() {
 		CP_actualizador();
+		//$this->CP_publica("publish", "temporal", 2413);
 ?>
 			<style type="text/css">
 			div.donacion {
