@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.1
+Version: 1.1.1
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -185,7 +185,7 @@ class CrossPress {
 				foreach(get_the_tags($entrada->ID) as $etiqueta) $etiquetas .= "#" . $etiqueta->name . " , ";
 				$etiquetas = rtrim($etiquetas, " , ");
 
-				$mensaje_tumblr = html_entity_decode($imagen . "<br />" . $mensaje, ENT_QUOTES, 'UTF-8');// . "<br />" . html_entity_decode($etiquetas, ENT_QUOTES, 'UTF-8');
+				$mensaje_tumblr = html_entity_decode($imagen . $mensaje, ENT_QUOTES, 'UTF-8');// . "<br />" . html_entity_decode($etiquetas, ENT_QUOTES, 'UTF-8');
 				//html_entity_decode(CP_salto_de_linea($imagen . $mensaje . "<br /><br />" . $etiquetas), ENT_QUOTES, 'UTF-8');
 				
 				preg_match_all('/[\w\.=-]+@tumblr.com/', $para, $tumblr);
@@ -201,7 +201,7 @@ class CrossPress {
 			if (isset($buffer[0][0])) mail($buffer[0][0], $asunto_buffer, $mensaje_buffer, $cabeceras); //Específico para BufferApp.com
 			if (isset($tumblr[0][0])) mail($tumblr[0][0], $asunto, $mensaje_tumblr, $cabeceras_html); //Específico para Tumblr.com
 
-			//mail('info@artprojectgroup.com', 'CrossPress', 'Datos iniciales: Para (' . $para . ') - Asunto (' . $asunto . ') - Mensaje: (' . $imagen . $mensaje . ')<br />Cuentas (' . print_r($cuentas, true) . ') - WordPress (' . $mensaje_wordpress . ')<br /> Tumblr (' . $asunto_tumblr . ' - ' . $mensaje_tumblr . ')<br /> Buffer (' . $asunto_buffer . ' - ' . $mensaje_buffer . ')', $cabeceras_html); //Control de funcionamiento
+			//mail('info@artprojectgroup.com', $asunto, $mensaje_tumblr, $cabeceras_html); //Control de funcionamiento
 		}
 	
 		return $objeto_entrada;
@@ -210,7 +210,6 @@ class CrossPress {
 	//Pinta el formulario de configuración
 	function CP_formulario_de_configuracion() {
 		CP_actualizador();
-		//$this->CP_publica("publish", "temporal", 2410);
 ?>
 			<style type="text/css">
 			div.donacion {
