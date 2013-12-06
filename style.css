@@ -1,0 +1,109 @@
+@charset "UTF-8";
+ @import url(fonts/stylesheet.css);
+/*General*/
+div.donacion [class^="icon-"]:before, div.donacion [class*=" icon-"]:before, div.donacion [class^="icon-"]:after, div.donacion [class*=" icon-"]:after, div.donacion .artprojectgroup {
+	font-size: 20px;
+}
+div.donacion {
+	background: #FFFFE0;
+	border: 1px solid #E6DB55;
+	float: right;
+	margin: 10px 0px;
+	padding: 10px;
+	width: 220px;
+	text-align: center;
+}
+div.donacion > div {
+	padding: 10px;
+	margin: 10px auto 0px;
+	width: 190px;
+	border-top: 1px solid #E6DB55;
+}
+a {
+	text-decoration: none;
+}
+.cabecera img {
+	border: 4px solid #888888;
+}
+form, .enlace {
+	padding-left: 25px;
+}
+label {
+	font-weight: bold;
+	display: block;
+	margin-top: 10px;
+	cursor: pointer;
+	float: none;
+	margin-bottom: 3px;
+}
+.campos {
+	margin-bottom: 30px;
+	float: left;
+	width: 70%;
+}
+.campo {
+	margin: 15px 0px;
+	clear: both;
+}
+.campo_izquierda {
+	float: left;
+	margin: -15px 15px 15px 0px !important;
+}
+.campo div {
+	color: #555;
+	font-weight: normal;
+	margin-left: 15px;
+}
+.nota {
+	color: #777;
+	font-style: italic;
+	font-size: 90%;
+	display: block;
+}
+.guardar {
+	margin-top: 10px;
+	clear: both;
+}
+input[type="text"], textarea {
+	background-color: #FCFCFC;
+	border: 1px solid #E0E0E0;
+	color: #696868;
+	font-weight: 300;
+	min-width: 188px;
+	padding: 8px 10px;
+}
+input[type="text"] {
+	max-width: 98%;
+	width: 300px;
+}
+textarea {
+	float: none;
+	height: 150px;
+	width: 25%;
+	min-width: 582px;
+}
+input[type="submit"] {
+	background: #fcfcfc;
+	-webkit-box-shadow: 0 0 3px rgba(255,255,255,1) inset;
+	-moz-box-shadow: 0 0 3px rgba(255,255,255,1) inset;
+	box-shadow: 0 0 3px rgba(255,255,255,1) inset;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#e2e2e2)); /* Webkit */
+	background: -moz-linear-gradient(top, #fcfcfc, #e2e2e2); /* Firefox */
+ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#e2e2e2'); /* Internet Explorer */
+	border: 1px solid #D9D9D9;
+	border-radius: 3px;
+	color: #3B3B39 !important;
+	padding: 7px 1.7em;
+	text-shadow: 0 1px 0 white;
+}
+input:focus, textarea:focus, input:hover, textarea:hover {
+	border-color: #D9001D;
+	outline: medium none;
+	-webkit-box-shadow: 0 0 5px rgba(217, 0, 29,0.75);
+	-moz-box-shadow: 0 0 5px rgba(217, 0, 29,0.75);
+	box-shadow: 0 0 5px rgba(217, 0, 29,0.75);
+}
+input[type="submit"]:focus, input[type="submit"]:hover {
+	cursor: pointer;
+	text-decoration: none;
+}

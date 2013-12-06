@@ -4,14 +4,14 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer
 Requires at least: 2.6
 Tested up to: 3.7.1
-Stable tag: 1.1.2
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Publica automáticamente las entradas publicadas en nuestro sitio web en otros servicios como WordPress.com, Blogger, Google+ vía Buffer y Tumblr.
 
 == Description ==
-**CrossPress 2** nos ofrece la posibilidad de publicar automáticamente todas las entradas que publiquemos en nuestro sitio web bajo WordPress en WordPress.com, Blogpsot.com, Google+ víaBufferApp.com y Tumblr.com.
+**CrossPress 2** nos ofrece la posibilidad de publicar automáticamente todas las entradas que publiquemos en nuestro sitio web bajo WordPress en WordPress.com, Blogpsot.com, Google+ vía BufferApp.com y Tumblr.com.
 
 = Características =
 * Totalmente automático.
@@ -58,6 +58,12 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 1. Captura de pantalla de **CrossPress 2**.
 
 == Changelog ==
+= 1.2 =
+* Arreglos menores en el código.
+* Modificación de la pantalla de configuración.
+* Modificación de los enlaces del plugin.
+* Actualización de la captura de pantalla.
+* Añadidos nuevos enlaces. 
 = 1.1.2 =
 * Modificación automática de URLs relativas a absolutas.
 * Arreglo de error que hacía que aparecía un enlace vacío cuando no existía imagen. 
@@ -95,6 +101,12 @@ Arreglo de pequeños errores en el código fuente.
 Versión inicial.
 
 == Upgrade Notice ==
+= 1.2 =
+* Arreglos menores en el código.
+* Modificación de la pantalla de configuración.
+* Modificación de los enlaces del plugin.
+* Actualización de la captura de pantalla.
+* Añadidos nuevos enlaces. 
 = 1.1.2 =
 Modificación automática de URLs relativas a absolutas y arreglo de error que hacía que aparecía un enlace vacío cuando no existía imagen.
 = 1.1.1 =
