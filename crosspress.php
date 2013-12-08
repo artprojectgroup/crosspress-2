@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.2
+Version: 1.2.1
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -127,7 +127,7 @@ class CrossPress {
 			if ($imagen)
 			{		
 				$imagen = crosspress_procesa_la_imagen($imagen);
-				$imagen = $enlace_html . $imagen . '</a>';
+				$imagen = $enlace_html . $imagen . '</a><br />';
 			}
 			$enlace_html .= $entrada->post_title . '</a>.';
 			
@@ -171,7 +171,7 @@ class CrossPress {
 				foreach(get_the_tags($entrada->ID) as $etiqueta) $etiquetas .= $etiqueta->name . ", ";
 				$etiquetas = "[tags " . rtrim($etiquetas, ", ") . "]";
 			
-				$mensaje_wordpress = $imagen . "<br />" . $mensaje . "<br />" . $categorias . "<br />" . $etiquetas;
+				$mensaje_wordpress = $imagen . $mensaje . "<br />" . $categorias . "<br />" . $etiquetas;
 				
 				preg_match_all('/[\w\.=-]+@[a-zA-Z0-9_\-\.]+wordpress.com/', $para, $wordpress);
 				if (isset($wordpress[0][0])) $cuentas[] = $wordpress[0][0];
@@ -190,7 +190,7 @@ class CrossPress {
 			$para = htmlspecialchars(crosspress_procesa_cuentas($configuracion['cuenta'], $cuentas)); //Quitamos las cuentas de WordPress.com, BufferApp.com y Tumblr.com, que se envían de forma distinta
 			
 			//Envía correo electrónico			
-			if ($para) mail($para, $asunto, html_entity_decode($imagen . "<br />" . $mensaje, ENT_QUOTES, 'UTF-8'), $cabeceras_html); //A todos los servicios disponibles
+			if ($para) mail($para, $asunto, html_entity_decode($imagen . $mensaje, ENT_QUOTES, 'UTF-8'), $cabeceras_html); //A todos los servicios disponibles
 			
 			if (isset($wordpress[0][0])) mail($wordpress[0][0], $asunto, $mensaje_wordpress, $cabeceras_html); //Específico para WordPress.com
 			if (isset($buffer[0][0])) mail($buffer[0][0], $asunto_buffer, $mensaje_buffer, $cabeceras); //Específico para BufferApp.com
@@ -204,7 +204,7 @@ class CrossPress {
 	//Pinta el formulario de configuración
 	function crosspress_formulario_de_configuracion() {
 		//$this->crosspress_publica("publish", "temporal", 126);
-		wp_enqueue_style( 'crosspress_hoja_de_estilo' ); //Carga la hoja de estilo
+		wp_enqueue_style('crosspress_hoja_de_estilo'); //Carga la hoja de estilo
 		include('formulario.php');
 	}
 }
@@ -330,16 +330,16 @@ function crosspress_plugin($nombre) {
 	$url = 'http://api.wordpress.org/plugins/info/1.0/';
 	$respuesta = wp_remote_post($url, array('body' => $consulta));
 	$plugin = unserialize($respuesta['body']);
-	//echo '<pre>' . print_r( $plugin, true ) . '</pre>';
+	//echo '<pre>' . print_r($plugin, true) . '</pre>';
 	
 	return get_object_vars($plugin);
 }
 
 //Comprueba si hay que mostrar el mensaje de configuración
 function crosspress_muestra_mensaje() {
-	wp_register_style( 'crosspress_hoja_de_estilo', plugins_url('style.css', __FILE__) ); //Carga la hoja de estilo
-	wp_register_style( 'crosspress_fuentes', plugins_url('fonts/stylesheet.css', __FILE__) ); //Carga la hoja de estilo global
-	wp_enqueue_style( 'crosspress_fuentes' ); //Carga la hoja de estilo global
+	wp_register_style('crosspress_hoja_de_estilo', plugins_url('style.css', __FILE__)); //Carga la hoja de estilo
+	wp_register_style('crosspress_fuentes', plugins_url('fonts/stylesheet.css', __FILE__)); //Carga la hoja de estilo global
+	wp_enqueue_style('crosspress_fuentes'); //Carga la hoja de estilo global
 }
-add_action( 'admin_init', 'crosspress_muestra_mensaje' );
+add_action('admin_init', 'crosspress_muestra_mensaje');
 ?>

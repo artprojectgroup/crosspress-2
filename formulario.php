@@ -16,7 +16,7 @@
   </p>
   <?php include('cuadro-donacion.php'); ?>
   <form method="post" action="">
-    <div class="cabecera"> <a href="http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2" title="CrossPress 2"><img src="http://www.artprojectgroup.es/wp-content/artprojectgroup/crosspress-2-582x139.jpg" width="582" height="139" /></a> </div>
+    <div class="cabecera"> <a href="<?php echo $crosspress['plugin_url']; ?>" title="<?php echo $crosspress['plugin']; ?>"><img src="<?php echo $crosspress['imagen']; ?>" width="582" height="139" /></a> </div>
     <div class="campos">
       <div class="campo">
         <label for="cuenta">
