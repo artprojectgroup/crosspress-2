@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.2.1
+Version: 1.3
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -77,7 +77,6 @@ class CrossPress {
 		
 		if ($this->actualizacion) 
 		{
-			echo "Hola";
 			$campos_chequeo = array('pagina', 'imagen', 'publicacion', 'extracto', 'extracto_enlaces');
 			foreach ($campos_chequeo as $campo) if (!isset($_POST[$campo])) $_POST[$campo] = 0;
 			
@@ -103,7 +102,7 @@ class CrossPress {
 		$configuracion = get_option('crosspress');
 		
 		if (get_post_type($objeto_entrada) == "feedback" || ($configuracion['pagina'] != "1" && get_post_type($objeto_entrada) == "page")) return $objeto_entrada; //Control para no publicar comentarios y/o páginas, en caso de que no se haya seleccionado en las opciones.
-		
+
 		if ($nuevo_estado == "publish" && $estado_anterior != "publish") 
 		{
 			$mensaje = $mensaje_wordpress = $mensaje_buffer = $asunto_buffer = $imagen = "";
@@ -141,7 +140,7 @@ class CrossPress {
 			$contenido_filtrado = strip_tags($contenido_filtrado, '<a>');
 			$contenido_filtrado = preg_replace("/<[^\/>][^>]*><\/[^>]+>/", '', $contenido_filtrado);
 			$palabras = explode(' ', $contenido_filtrado, $longitud_de_extracto + 1);
-			$extracto_con_enlaces = crosspress_extracto_con_enlaces($palabras, $longitud_de_extracto); //Extracto inicial
+			$extracto_con_enlaces = rtrim(crosspress_extracto_con_enlaces($palabras, $longitud_de_extracto)); //Extracto inicial
 			if (preg_match_all("/<a\s[^>]*href=(\"??)([^\" >]*?)\\1[^>]*>(.*)<\/a>/siU", $extracto_con_enlaces, $enlaces, PREG_SET_ORDER)) //Si hay enlaces en el extracto, hay que ampliarlo
 			{
 				$palabras = explode(' ', $contenido_filtrado, $longitud_de_extracto + 1 + (count($enlaces) * 3));
@@ -203,7 +202,7 @@ class CrossPress {
 	
 	//Pinta el formulario de configuración
 	function crosspress_formulario_de_configuracion() {
-		//$this->crosspress_publica("publish", "temporal", 126);
+		$this->crosspress_publica("publish", "temporal", 2);
 		wp_enqueue_style('crosspress_hoja_de_estilo'); //Carga la hoja de estilo
 		include('formulario.php');
 	}
@@ -250,7 +249,7 @@ function crosspress_extracto_con_enlaces($extracto, $longitud) {
 		$extracto = implode(' ', $extracto);
 	}
 	
-	return rtrim($extracto);
+	return $extracto;
 }
 
 //Cierra los enlaces abiertos
