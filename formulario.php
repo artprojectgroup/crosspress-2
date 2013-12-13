@@ -25,7 +25,7 @@
   </p>
   <?php include('cuadro-donacion.php'); ?>
   <form method="post" action="">
-    <div class="cabecera"> <a href="<?php echo $crosspress['plugin_url']; ?>" title="<?php echo $crosspress['plugin']; ?>"><img src="<?php echo $crosspress['imagen']; ?>" width="582" height="139" /></a> </div>
+    <div class="cabecera"> <a href="<?php echo $crosspress['plugin_url']; ?>" title="<?php echo $crosspress['plugin']; ?>" target="_blank"><span class="imagen"></span></a> </div>
     <table class="form-table">
       <tbody>
         <tr valign="top">
@@ -40,7 +40,9 @@
               <?php _e('Each email account must be entered onto a new line.', 'crosspress'); ?>
               <br />
               <?php _e('Tested on: ', 'crosspress'); ?>
-              <em>WordPress.com, Blogspot.com <?php _e('and', 'crosspress'); ?> BufferApp.com (Google+)</em>.</p></td>
+              <em>WordPress.com, Blogspot.com
+              <?php _e('and', 'crosspress'); ?>
+              BufferApp.com (Google+)</em>.</p></td>
         </tr>
         <tr valign="top">
           <th scope="row"><?php _e('Pages:', 'crosspress'); ?>

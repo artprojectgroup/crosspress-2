@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.3
+Version: 1.3.1
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -27,7 +27,6 @@ $crosspress = array(	'plugin' => 'CrossPress 2',
 						'plugin_url' => 'http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2', 
 						'paypal' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4', 
 						'ajustes' => 'options-general.php?page=crosspress-2/crosspress.php', 
-						'imagen' => 'http://www.artprojectgroup.es/wp-content/artprojectgroup/crosspress-2-582x139.jpg', 
 						'puntuacion' => 'http://wordpress.org/support/view/plugin-reviews/crosspress-2');
 
 //Carga el idioma
