@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.3.2
+Version: 1.4
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -108,6 +108,7 @@ class CrossPress {
 			$cuentas = array();
 			$entrada = get_post($objeto_entrada);
 			setup_postdata($entrada);
+			if (!has_excerpt()) add_filter('excerpt_length', 'tamano_de_extracto', 999); //Si no existe el extracto, le damos un tamaño mínimo de 55 palabras.
 			$extracto = $extracto_original = trim(get_the_excerpt()); //Extracto
 			$contenido = get_the_content(); //Contenido
 			$contenido = str_replace('\]\]\>', ']]>', $contenido);
@@ -132,12 +133,19 @@ class CrossPress {
 			//Creamos un extracto con los enlaces incluidos
 			global $wp_filter;
 			
-			foreach ($wp_filter['excerpt_more'][10] as $clave => $valor) $finalizacion_de_extracto = trim($clave(''));
-			foreach ($wp_filter['excerpt_length'][10] as $clave => $valor) $longitud_de_extracto = trim($clave(''));
-
 			$contenido_filtrado = preg_replace("/\[caption.*\[\/caption\]/", '', $contenido);
 			$contenido_filtrado = strip_tags($contenido_filtrado, '<a>');
 			$contenido_filtrado = preg_replace("/<[^\/>][^>]*><\/[^>]+>/", '', $contenido_filtrado);
+
+			if (isset($wp_filter['excerpt_more']))
+			{
+				foreach ($wp_filter['excerpt_more'] as $excerpt_more) foreach ($excerpt_more as $clave => $valor) $finalizacion_de_extracto = trim($clave(''));
+			}
+			if (isset($wp_filter['excerpt_length'])) 
+			{
+				foreach ($wp_filter['excerpt_length'] as $excerpt_length) foreach ($excerpt_length as $clave => $valor) $longitud_de_extracto = trim($clave(''));
+			}
+			
 			$palabras = explode(' ', $contenido_filtrado, $longitud_de_extracto + 1);
 			$extracto_con_enlaces = rtrim(crosspress_extracto_con_enlaces($palabras, $longitud_de_extracto)); //Extracto inicial
 			if (preg_match_all("/<a\s[^>]*href=(\"??)([^\" >]*?)\\1[^>]*>(.*)<\/a>/siU", $extracto_con_enlaces, $enlaces, PREG_SET_ORDER)) //Si hay enlaces en el extracto, hay que ampliarlo
@@ -172,9 +180,9 @@ class CrossPress {
 				$mensaje_wordpress = $imagen . $mensaje . "<br />" . $categorias . "<br />" . $etiquetas;
 				
 				preg_match_all('/[\w\.=-]+@[a-zA-Z0-9_\-\.]+wordpress.com/', $para, $wordpress);
-				if (isset($wordpress[0][0])) $cuentas[] = $wordpress[0][0];
+				if (isset($wordpress[0])) foreach($wordpress[0] as $cuenta_de_wordpress)	$cuentas[] = $cuenta_de_wordpress;
 			}
-			
+
 			//Formato específico para Buffer (No soporta enlaces, sólo el extracto)
 			if (strpos($para, 'bufferapp.com') !== false) 
 			{
@@ -182,7 +190,7 @@ class CrossPress {
 				$mensaje_buffer = $enlace . "\n" . "@now";
 				
 				preg_match_all('/[\w\.=-]+@[a-zA-Z0-9_\-\.]+bufferapp.com/', $para, $buffer);
-				if (isset($buffer[0][0])) $cuentas[] = $buffer[0][0];
+				if (isset($buffer[0])) foreach($buffer[0] as $cuenta_de_buffer) $cuentas[] = $cuenta_de_buffer;
 			}
 	
 			$para = htmlspecialchars(crosspress_procesa_cuentas($configuracion['cuenta'], $cuentas)); //Quitamos las cuentas de WordPress.com, BufferApp.com y Tumblr.com, que se envían de forma distinta
@@ -193,7 +201,7 @@ class CrossPress {
 			if (isset($wordpress[0][0])) mail($wordpress[0][0], $asunto, $mensaje_wordpress, $cabeceras_html); //Específico para WordPress.com
 			if (isset($buffer[0][0])) mail($buffer[0][0], $asunto_buffer, $mensaje_buffer, $cabeceras); //Específico para BufferApp.com
 
-			//mail('info@artprojectgroup.com', $asunto, html_entity_decode($imagen . "<br />" . $mensaje, ENT_QUOTES, 'UTF-8'), $cabeceras_html); //Control de funcionamiento
+			//mail('info@artprojectgroup.com', $asunto, html_entity_decode($imagen . $mensaje, ENT_QUOTES, 'UTF-8'), $cabeceras_html); //Control de funcionamiento
 		}
 	
 		return $objeto_entrada;
@@ -201,16 +209,22 @@ class CrossPress {
 	
 	//Pinta el formulario de configuración
 	function crosspress_formulario_de_configuracion() {
-		//$this->crosspress_publica("publish", "temporal", 2);
+		//$this->crosspress_publica("publish", "temporal", 230);
 		wp_enqueue_style('crosspress_hoja_de_estilo'); //Carga la hoja de estilo
 		include('formulario.php');
 	}
 }
 
+//Damos el tamaño al extracto si no existe
+function tamano_de_extracto($tamaño) {
+	return 55;
+}
+
 //Procesa las cuentas de correo electrónico
 function crosspress_procesa_cuentas($listado, $cuentas = '') {
+	$listado = str_replace(array("\r\n", "\r"), "\n", $listado);
+	if ($cuentas) foreach ($cuentas as $cuenta) $listado = str_replace($cuenta . "\n", '', $listado); //Elimina de la lista las cuentas enviadas
 	$listado = nl2br($listado);
-	if ($cuentas) foreach ($cuentas as $cuenta) $listado = str_replace($cuenta, '', $listado); //Elimina de la lista las cuentas enviadas
 
 	$salto_de_linea = array('<br>', '<br/>', '<br />');
 	$listado = str_replace($salto_de_linea, ', ', $listado) ; //remove new line
