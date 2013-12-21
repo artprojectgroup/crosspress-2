@@ -58,6 +58,8 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 1. Captura de pantalla de **CrossPress 2**.
 
 == Changelog ==
+= 1.4.1 =
+* Arreglo de error en el control de falta de extracto.
 = 1.4 =
 * Arreglo de distintos errores.
 * Añadido control de falta de extracto.
@@ -113,6 +115,8 @@ Arreglo de pequeños errores en el código fuente.
 Versión inicial.
 
 == Upgrade Notice ==
+= 1.4.1 =
+* Arreglo de error en el control de falta de extracto.
 = 1.4 =
 * Arreglo de distintos errores.
 * Añadido control de falta de extracto.

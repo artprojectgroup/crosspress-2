@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.4
+Version: 1.4.1
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -108,7 +108,11 @@ class CrossPress {
 			$cuentas = array();
 			$entrada = get_post($objeto_entrada);
 			setup_postdata($entrada);
-			if (!has_excerpt()) add_filter('excerpt_length', 'tamano_de_extracto', 999); //Si no existe el extracto, le damos un tamaño mínimo de 55 palabras.
+			if (!has_excerpt()) 
+			{
+				$finalizacion_de_extracto = trim(get_the_excerpt());
+				add_filter('excerpt_length', 'tamano_de_extracto', 999); //Si no existe el extracto, le damos un tamaño mínimo de 55 palabras.
+			}
 			$extracto = $extracto_original = trim(get_the_excerpt()); //Extracto
 			$contenido = get_the_content(); //Contenido
 			$contenido = str_replace('\]\]\>', ']]>', $contenido);
@@ -145,7 +149,7 @@ class CrossPress {
 			{
 				foreach ($wp_filter['excerpt_length'] as $excerpt_length) foreach ($excerpt_length as $clave => $valor) $longitud_de_extracto = trim($clave(''));
 			}
-			
+
 			$palabras = explode(' ', $contenido_filtrado, $longitud_de_extracto + 1);
 			$extracto_con_enlaces = rtrim(crosspress_extracto_con_enlaces($palabras, $longitud_de_extracto)); //Extracto inicial
 			if (preg_match_all("/<a\s[^>]*href=(\"??)([^\" >]*?)\\1[^>]*>(.*)<\/a>/siU", $extracto_con_enlaces, $enlaces, PREG_SET_ORDER)) //Si hay enlaces en el extracto, hay que ampliarlo
