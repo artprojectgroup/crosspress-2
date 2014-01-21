@@ -1,4 +1,4 @@
-<?php global $crosspress; ?>
+<?php global $crosspress, $entradas, $tipos_prohibidos; ?>
 
 <div class="wrap">
   <h2>
@@ -44,6 +44,32 @@
               <?php _e('and', 'crosspress'); ?>
               BufferApp.com (Google+)</em>.</p></td>
         </tr>
+        <?php if ($entradas || isset($configuracion['entradas'])) { ?>
+        <tr valign="top">
+          <th scope="row"><label for="cuenta">
+              <?php _e('Custom post types:', 'crosspress'); ?>
+            </label>
+          </th>
+          <td><textarea id="entradas" name="entradas" cols="50" rows="5" tabindex="<?php echo $tab++; ?>"><?php echo (isset($configuracion['entradas']) ? stripcslashes($configuracion['entradas']) : $entradas); ?></textarea>
+            <p class="description">
+              <?php _e('Custom post types used to post on each service.', 'crosspress'); ?>
+              <br />
+              <?php _e('Each custom post type must be entered onto a new line.', 'crosspress'); ?>
+              <br />
+              <?php 
+				$contador = 1;
+				foreach ($tipos_prohibidos as $tipo_prohibido) 
+			  	{
+					if ($contador < count($tipos_prohibidos) - 1) echo $tipo_prohibido . ",";
+					else if ($contador < count($tipos_prohibidos)) echo $tipo_prohibido . " " . __('and', 'crosspress') . " ";
+					else echo $tipo_prohibido;
+					$contador++;
+			  	}
+				?>
+              <?php _e('are your others unused custom post types.', 'crosspress'); ?>
+            </p></td>
+        </tr>
+        <?php } ?>
         <tr valign="top">
           <th scope="row"><?php _e('Pages:', 'crosspress'); ?>
           </th>

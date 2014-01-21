@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.5
+Version: 1.6
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -28,6 +28,8 @@ $crosspress = array(	'plugin' => 'CrossPress 2',
 						'paypal' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4', 
 						'ajustes' => 'options-general.php?page=crosspress-2/crosspress.php', 
 						'puntuacion' => 'http://wordpress.org/support/view/plugin-reviews/crosspress-2');
+$entradas = "";
+$tipos_prohibidos = array();
 
 //Carga el idioma
 load_plugin_textdomain('crosspress', null, dirname(plugin_basename(__FILE__)) . '/lang');
@@ -71,7 +73,7 @@ class CrossPress {
 	
 	function __construct() {
 		crosspress_actualizador();
-		$campos = array('cuenta', 'pagina', 'imagen', 'publicacion', 'extracto', 'extracto_enlaces', 'enlace', 'fuente', 'firma');
+		$campos = array('cuenta', 'entradas', 'pagina', 'imagen', 'publicacion', 'extracto', 'extracto_enlaces', 'enlace', 'fuente', 'firma');
 		foreach ($campos as $campo) if (isset($_POST[$campo])) $this->actualizacion = true;
 		
 		if ($this->actualizacion) 
@@ -99,8 +101,9 @@ class CrossPress {
  	function crosspress_publica($nuevo_estado, $estado_anterior, $objeto_entrada) {
 		crosspress_actualizador();
 		$configuracion = get_option('crosspress');
+		$chequea_tipos = crosspress_procesa_entradas($configuracion['entradas']);
 		
-		if (get_post_type($objeto_entrada) == "feedback" || get_post_type($objeto_entrada) == "shop_order" || ($configuracion['pagina'] != "1" && get_post_type($objeto_entrada) == "page")) return $objeto_entrada; //Control para no publicar comentarios y/o páginas, en caso de que no se haya seleccionado en las opciones.
+		if (!in_array(get_post_type($objeto_entrada), $chequea_tipos) || ($configuracion['pagina'] != "1" && get_post_type($objeto_entrada) == "page")) return $objeto_entrada; //Control para no publicar páginas, en caso de que no se haya seleccionado en las opciones.
 
 		if ($nuevo_estado == "publish" && $estado_anterior != "publish") 
 		{
@@ -119,7 +122,7 @@ class CrossPress {
 			$contenido = preg_replace('@<script[^>]*?>.*?</script>@si', '', $contenido);
 			$contenido = preg_replace("#(<\s*a\s+[^>]*href\s*=\s*[\"'])(?!http)[\/]?([^\"'>]+)([\"'>]+)#", '$1' . home_url('/') . '$2$3', $contenido); //Convertimos en absolutos los enlaces relativos
 			$contenido = apply_filters('the_content', $contenido);
-			
+
 			//Tratamos la imagen
 			if (has_post_thumbnail($entrada->ID) && $configuracion['imagen'] == "1") $imagen = get_post_thumbnail_id($entrada->ID); //Imagen destacada
 			else if (crosspress_devuelve_la_imagen($entrada->ID, $contenido)) $imagen = crosspress_devuelve_la_imagen($entrada->ID, $contenido); //Primera imagen de la publicación
@@ -204,8 +207,6 @@ class CrossPress {
 			
 			if (isset($wordpress[0][0])) mail($wordpress[0][0], $asunto, $mensaje_wordpress, $cabeceras_html); //Específico para WordPress.com
 			if (isset($buffer[0][0])) mail($buffer[0][0], $asunto_buffer, $mensaje_buffer, $cabeceras); //Específico para BufferApp.com
-
-			//mail('info@artprojectgroup.com', $asunto, html_entity_decode($imagen . $mensaje, ENT_QUOTES, 'UTF-8'), $cabeceras_html); //Control de funcionamiento
 		}
 	
 		return $objeto_entrada;
@@ -213,7 +214,7 @@ class CrossPress {
 	
 	//Pinta el formulario de configuración
 	function crosspress_formulario_de_configuracion() {
-		//$this->crosspress_publica("publish", "temporal", 230);
+		//$this->crosspress_publica("publish", "temporal", 340);
 		wp_enqueue_style('crosspress_hoja_de_estilo'); //Carga la hoja de estilo
 		include('formulario.php');
 	}
@@ -234,6 +235,14 @@ function crosspress_procesa_cuentas($listado, $cuentas = '') {
 	$listado = str_replace($salto_de_linea, ', ', $listado) ; //remove new line
 	$listado = str_replace(' ', '', $listado); //clear white space
 	$listado = trim(trim(trim($listado), ', ')); //Elimina las comas y espacios en blanco
+		
+	return $listado;
+}
+
+//Procesa tipos de entradas
+function crosspress_procesa_entradas($listado) {
+	$listado = str_replace(array("\r\n", "\r"), "\n", $listado);
+	$listado = explode("\n", $listado);
 		
 	return $listado;
 }
@@ -260,12 +269,10 @@ function crosspress_actualizador() {
 
 //Crea el extracto con enlaces
 function crosspress_extracto_con_enlaces($extracto, $longitud) {
-	if (count($extracto) > $longitud) 
-	{
-		array_pop($extracto);
-		$extracto = implode(' ', $extracto);
-	}
+	if (count($extracto) > $longitud) array_pop($extracto);
 	
+	$extracto = implode(' ', $extracto);
+
 	return $extracto;
 }
 
@@ -336,6 +343,19 @@ function crosspress_salto_de_linea($string) {
 	return preg_replace('/\<br(\s*)?\/?\>/i', "\n", $string);
 }
 
+//Procesa los tipos de entrada personalizados
+function crosspress_procesa_tipos() {
+	global $entradas, $tipos_prohibidos;
+	
+	$chequea_tipos = array("post", "page", "feedback", "attachment", "revision", "nav_menu_item", "product_variation", "shop_order", "shop_coupon", "safecss", "options");
+	$tipos_de_entradas = get_post_types('','names');
+	foreach ($tipos_de_entradas as $tipo_de_entrada)
+	{
+		if (!in_array($tipo_de_entrada, $chequea_tipos)) $entradas .= $tipo_de_entrada . "\n";
+		else if ($tipo_de_entrada != "post" && $tipo_de_entrada != "page") $tipos_prohibidos[] = "<code>" . $tipo_de_entrada . "</code>";
+	}
+}
+
 //Iniciamos el plugin
 new CrossPress;
 
@@ -353,9 +373,21 @@ function crosspress_plugin($nombre) {
 
 //Comprueba si hay que mostrar el mensaje de configuración
 function crosspress_muestra_mensaje() {
+	global $entradas;
+	
 	wp_register_style('crosspress_hoja_de_estilo', plugins_url('style.css', __FILE__)); //Carga la hoja de estilo
 	wp_register_style('crosspress_fuentes', plugins_url('fonts/stylesheet.css', __FILE__)); //Carga la hoja de estilo global
 	wp_enqueue_style('crosspress_fuentes'); //Carga la hoja de estilo global
+
+	crosspress_procesa_tipos();
+	$configuracion = get_option('crosspress');
+	if (!isset($configuracion['entradas']) && $entradas) add_action('admin_notices', 'crosspress_actualizacion');
 }
 add_action('admin_init', 'crosspress_muestra_mensaje');
+
+function crosspress_actualizacion() {
+	global $crosspress;
+	
+    echo '<div class="error fade" id="message"><h3>' . $crosspress['plugin'] . '</h3><h4>' . sprintf(__("Please, update your %s. It's very important!", 'crosspress'), '<a href="' . $crosspress['ajustes'] . '" title="' . __('Settings', 'crosspress') . '">' . __('settings', 'crosspress') . '</a>') . '</h4></div>';
+}
 ?>

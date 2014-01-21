@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: CrossPress 2 v1.3\n"
+"Project-Id-Version: CrossPress 2 v1.6\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-12-12 19:47:55+0000\n"
+"PO-Revision-Date: 2014-01-21 16:39:50+0000\n"
 "Last-Translator: admin <info@artprojectgroup.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -44,12 +44,13 @@ msgstr ""
 msgid "http://www.artprojectgroup.es/"
 msgstr ""
 
-#: crosspress.php:61
+#: crosspress.php:60
+#: crosspress.php:373
 #@ crosspress
 msgid "Settings"
 msgstr "Ajustes"
 
-#: crosspress.php:96
+#: crosspress.php:95
 #: formulario.php:5
 #@ crosspress
 msgid "CrossPress Options."
@@ -60,113 +61,114 @@ msgstr "Opciones de CrossPress."
 msgid "Options saved."
 msgstr "Opciones guardadas."
 
-#: formulario.php:40
+#: formulario.php:50
 #@ crosspress
 msgid "Each email account must be entered onto a new line."
 msgstr "Cada cuenta de correo debe introducirse en una línea nueva."
 
-#: formulario.php:42
+#: formulario.php:52
 #@ crosspress
 msgid "Tested on: "
 msgstr "Comprobado su funcionamiento en: "
 
-#: formulario.php:43
+#: formulario.php:54
+#: formulario.php:73
 #@ crosspress
 msgid "and"
 msgstr "y"
 
-#: formulario.php:46
+#: formulario.php:82
 #@ crosspress
 msgid "Pages:"
 msgstr "Páginas:"
 
-#: formulario.php:50
+#: formulario.php:86
 #@ crosspress
 msgid "Post pages."
 msgstr "Publicar páginas."
 
-#: formulario.php:70
+#: formulario.php:106
 #@ crosspress
 msgid "Excerpt:"
 msgstr "Extracto:"
 
-#: formulario.php:74
+#: formulario.php:110
 #@ crosspress
 msgid "Post excerpt."
 msgstr "Publicar extracto."
 
-#: formulario.php:13
-#: formulario.php:155
-#: formulario.php:157
+#: formulario.php:23
+#: formulario.php:191
+#: formulario.php:193
 #@ crosspress
 msgid "Continue reading on "
 msgstr "Sigue leyendo en "
 
-#: formulario.php:15
-#: formulario.php:156
-#: formulario.php:158
+#: formulario.php:25
+#: formulario.php:192
+#: formulario.php:194
 #@ crosspress
 msgid "Original source: "
 msgstr "Fuente original: "
 
-#: formulario.php:18
+#: formulario.php:28
 #@ crosspress
 msgid "publication-name"
 msgstr "nombre-de-la-publicacion"
 
-#: formulario.php:19
+#: formulario.php:29
 #@ crosspress
 msgid "Publication name"
 msgstr "Nombre de la publicación"
 
-#: crosspress.php:125
-#: formulario.php:20
+#: crosspress.php:130
+#: formulario.php:30
 #@ crosspress
 msgid " in "
 msgstr " en "
 
-#: formulario.php:90
+#: formulario.php:126
 #@ crosspress
 msgid "Excerpt Link:"
 msgstr "Enlace del extracto:"
 
-#: formulario.php:95
+#: formulario.php:131
 #@ crosspress
 msgid "You can customize, if desired, the link after the excerpt of the publication."
 msgstr "Puede personalizar, si lo desea, el enlace que aparece tras el extracto de la publicación."
 
-#: formulario.php:96
-#: formulario.php:110
+#: formulario.php:132
+#: formulario.php:146
 #@ crosspress
 msgid "It's very important to leave a blank space at the end."
 msgstr "Es muy importante que deje un espacio en blanco al final."
 
-#: formulario.php:98
+#: formulario.php:134
 #@ crosspress
 msgid "The excerpt link now looks like this:"
 msgstr "El enlace del extracto tiene actualmente esta apariencia:"
 
-#: formulario.php:104
+#: formulario.php:140
 #@ crosspress
 msgid "Post link:"
 msgstr "Enlace de la publicación:"
 
-#: formulario.php:109
+#: formulario.php:145
 #@ crosspress
 msgid "If you wish you can customize the link that appears after the full post. It's very important to leave a blank space."
 msgstr "Puede personalizar, si lo desea, el enlace que aparece tras la publicación completa."
 
-#: formulario.php:112
+#: formulario.php:148
 #@ crosspress
 msgid "The post link now looks like this:"
 msgstr "El enlace de la publicación tiene actualmente esta apariencia:"
 
-#: formulario.php:118
+#: formulario.php:154
 #@ crosspress
 msgid "Signature:"
 msgstr "Firma:"
 
-#: formulario.php:124
+#: formulario.php:160
 #@ crosspress
 msgid "If desired you can add a signature. Introduced URLs will be converted into links automatically."
 msgstr "Puede añadir una firma si lo desea. Las URLs introducidas serán convertidas en enlaces automáticamente."
@@ -177,106 +179,106 @@ msgstr "Puede añadir una firma si lo desea. Las URLs introducidas serán conver
 msgid "With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href=\"http://www.atthakorn.com/project/crosspress/\" target=\"_blank\">Atthakorn Chanthong</a> <a href=\"http://wordpress.org/plugins/crosspress/\" target=\"_blank\"><strong>CrossPress</strong></a> plugin."
 msgstr "Con CrossPress 2 puedes publicar automáticamente en otros servicios las entradas que publicas en tu sitio web bajo WordPress. Creado a partir del plugin de <a href=\"http://www.atthakorn.com/project/crosspress/\" target=\"_blank\">Atthakorn Chanthong</a> <a href=\"http://wordpress.org/plugins/crosspress/\" target=\"_blank\"><strong>CrossPress</strong></a>."
 
-#: formulario.php:54
+#: formulario.php:90
 #@ crosspress
 msgid "Image:"
 msgstr "Imagen:"
 
-#: formulario.php:58
+#: formulario.php:94
 #@ crosspress
 msgid "Post image."
 msgstr "Publicar imagen."
 
-#: formulario.php:78
+#: formulario.php:114
 #@ crosspress
 msgid "Excerpt with links:"
 msgstr "Extracto con enlaces:"
 
-#: formulario.php:82
+#: formulario.php:118
 #@ crosspress
 msgid "Post excerpt with links."
 msgstr "Publicar extracto con enlaces."
 
-#: formulario.php:62
+#: formulario.php:98
 #@ crosspress
 msgid "Full content:"
 msgstr "Contenido completo:"
 
-#: formulario.php:66
+#: formulario.php:102
 #@ crosspress
 msgid "Post full content."
 msgstr "Publicar contenido completo."
 
-#: formulario.php:85
+#: formulario.php:121
 #@ crosspress
 msgid "Except for"
 msgstr "Excepto en"
 
-#: formulario.php:33
+#: formulario.php:43
 #@ crosspress
 msgid "Email accounts of services:"
 msgstr "Cuentas de correo de los servicios:"
 
-#: formulario.php:38
+#: formulario.php:48
 #@ crosspress
 msgid "Emails that lets you automatically post on each service."
 msgstr "Correos electrónicos que te permiten publicar automáticamente en cada servicio."
 
-#: crosspress.php:45
+#: crosspress.php:44
 #: cuadro-donacion.php:6
 #@ crosspress
 msgid "Make a donation by "
 msgstr "Haz una donación por "
 
-#: crosspress.php:47
+#: crosspress.php:46
 #: cuadro-donacion.php:15
 #@ crosspress
 msgid "Follow us on "
 msgstr "Síguenos en "
 
-#: crosspress.php:48
+#: crosspress.php:47
 #: cuadro-donacion.php:21
 #@ crosspress
 msgid "More plugins on "
 msgstr "Más plugins en "
 
-#: crosspress.php:49
+#: crosspress.php:48
 #: cuadro-donacion.php:27
 #@ crosspress
 msgid "Contact with us by "
 msgstr "Contacta con nosotros por "
 
-#: crosspress.php:50
+#: crosspress.php:49
 #: cuadro-donacion.php:39
 #@ crosspress
 msgid "***** Fantastic!"
 msgstr "***** ¡Fantástico!"
 
-#: crosspress.php:50
+#: crosspress.php:49
 #: cuadro-donacion.php:39
 #@ crosspress
 msgid "**** Great"
 msgstr "**** Genial"
 
-#: crosspress.php:50
+#: crosspress.php:49
 #: cuadro-donacion.php:39
 #@ crosspress
 msgid "*** Good"
 msgstr "*** Bueno"
 
-#: crosspress.php:50
+#: crosspress.php:49
 #: cuadro-donacion.php:39
 #@ crosspress
 msgid "** Works"
 msgstr "** Funciona"
 
-#: crosspress.php:50
+#: crosspress.php:49
 #: cuadro-donacion.php:39
 #@ crosspress
 msgid "* Poor"
 msgstr "* Pobre"
 
-#: crosspress.php:61
+#: crosspress.php:60
 #@ crosspress
 msgid "Settings of "
 msgstr "Ajustes de "
@@ -312,19 +314,50 @@ msgstr "Documentación y soporte:"
 msgid "Please, rate %s:"
 msgstr "Por favor, puntúa %s:"
 
-#. translators: plugin header field 'Version'
-#: crosspress.php:0
-#@ crosspress
-msgid "1.3"
-msgstr ""
-
-#: formulario.php:24
+#: formulario.php:34
 #@ crosspress
 msgid "Post automatically the posts published in your website in other services like WordPress.com, Blogger y Google + via BufferApp.com."
 msgstr " Publica automáticamente las entradas publicadas en nuestro sitio web en otros servicios como WordPress.com, Blogger y Google+ vía Buffer. "
 
-#: formulario.php:130
+#: formulario.php:166
 #@ crosspress
 msgid "Save Changes"
 msgstr "Guardar cambios"
+
+#. translators: plugin header field 'Version'
+#: crosspress.php:0
+#@ crosspress
+msgid "1.6"
+msgstr ""
+
+#: crosspress.php:373
+#, php-format
+#@ crosspress
+msgid "Please, update your %s. It's very important!"
+msgstr "Por favor, actualiza tus %s. ¡Es muy importante!"
+
+#: crosspress.php:373
+#@ crosspress
+msgid "settings"
+msgstr "ajustes"
+
+#: formulario.php:59
+#@ crosspress
+msgid "Custom post types:"
+msgstr "Tipos de entrada personalizados:"
+
+#: formulario.php:64
+#@ crosspress
+msgid "Custom post types used to post on each service."
+msgstr "Tipos de entrada personalizados usados para publicar en cada servicio."
+
+#: formulario.php:78
+#@ crosspress
+msgid "are your others unused custom post types."
+msgstr "son tus otros tipos de entrada personalizados sin usar."
+
+#: formulario.php:66
+#@ crosspress
+msgid "Each custom post type must be entered onto a new line."
+msgstr "Cada tipo de entrada personalizado debe introducirse en una línea nueva."
 

@@ -1,10 +1,10 @@
 === CrossPress 2 ===
 Contributors: artprojectgroup
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4
-Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer, google+, google plus, woocommerce
+Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer, google+, google plus
 Requires at least: 2.6
 Tested up to: 3.8
-Stable tag: 1.5
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,7 @@ Publica automáticamente las entradas publicadas en nuestro sitio web en otros s
 
 = Características =
 * Totalmente automático.
+* Permite indicar los tipos de entrada personalizados que queremos publicar.
 * Permite la publicación de las nuevas páginas.
 * Permite publicar la fotografía destacada en la publicación o página.
 * Permite publicar el extracto, con o sin enlaces, o el texto completo de las entradas y páginas.
@@ -58,6 +59,9 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 1. Captura de pantalla de **CrossPress 2**.
 
 == Changelog ==
+= 1.6 =
+* Añadido nuevo campo para seleccionar los tipos de entrada personalizados que queremos publicar.
+* Arreglo de error detectado en la publicación de entradas con contenido inferior al mínimo de palabras del extracto.
 = 1.5 =
 * Filtro de control para evitar la publicación de los pedidos de WooCommerce.
 = 1.4.1 =
@@ -117,6 +121,11 @@ Arreglo de pequeños errores en el código fuente.
 Versión inicial.
 
 == Upgrade Notice ==
+= 1.6 =
+* Añadido nuevo campo para seleccionar los tipos de entrada personalizados que queremos publicar.
+* Arreglo de error detectado en la publicación de entradas con contenido inferior al mínimo de palabras del extracto.
+= 1.5 =
+* Filtro de control para evitar la publicación de los pedidos de WooCommerce.
 = 1.4.1 =
 * Arreglo de error en el control de falta de extracto.
 = 1.4 =
