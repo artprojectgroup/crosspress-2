@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.6
+Version: 1.6.1
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -344,15 +344,16 @@ function crosspress_salto_de_linea($string) {
 }
 
 //Procesa los tipos de entrada personalizados
-function crosspress_procesa_tipos() {
-	global $entradas, $tipos_prohibidos;
+function crosspress_procesa_tipos($configuracion) {
+	global $entradas, $tipos_prohibidos;	
 	
 	$chequea_tipos = array("post", "page", "feedback", "attachment", "revision", "nav_menu_item", "product_variation", "shop_order", "shop_coupon", "safecss", "options");
 	$tipos_de_entradas = get_post_types('','names');
+	if (isset($configuracion['entradas'])) $tipos = crosspress_procesa_entradas($configuracion['entradas']);
 	foreach ($tipos_de_entradas as $tipo_de_entrada)
 	{
-		if (!in_array($tipo_de_entrada, $chequea_tipos)) $entradas .= $tipo_de_entrada . "\n";
-		else if ($tipo_de_entrada != "post" && $tipo_de_entrada != "page") $tipos_prohibidos[] = "<code>" . $tipo_de_entrada . "</code>";
+		if (!in_array($tipo_de_entrada, $chequea_tipos) && !isset($configuracion['entradas'])) $entradas .= $tipo_de_entrada . "\n";
+		else if ($tipo_de_entrada != "post" && $tipo_de_entrada != "page" && !in_array($tipo_de_entrada, $tipos)) $tipos_prohibidos[] = "<code>" . $tipo_de_entrada . "</code>";
 	}
 }
 
@@ -379,8 +380,8 @@ function crosspress_muestra_mensaje() {
 	wp_register_style('crosspress_fuentes', plugins_url('fonts/stylesheet.css', __FILE__)); //Carga la hoja de estilo global
 	wp_enqueue_style('crosspress_fuentes'); //Carga la hoja de estilo global
 
-	crosspress_procesa_tipos();
 	$configuracion = get_option('crosspress');
+	crosspress_procesa_tipos($configuracion);
 	if (!isset($configuracion['entradas']) && $entradas) add_action('admin_notices', 'crosspress_actualizacion');
 }
 add_action('admin_init', 'crosspress_muestra_mensaje');
