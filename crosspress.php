@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.6.2
+Version: 1.7
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -121,7 +121,6 @@ class CrossPress {
 			$contenido = str_replace('\]\]\>', ']]>', $contenido);
 			$contenido = preg_replace('@<script[^>]*?>.*?</script>@si', '', $contenido);
 			$contenido = preg_replace("#(<\s*a\s+[^>]*href\s*=\s*[\"'])(?!http)[\/]?([^\"'>]+)([\"'>]+)#", '$1' . home_url('/') . '$2$3', $contenido); //Convertimos en absolutos los enlaces relativos
-			$contenido = apply_filters('the_content', $contenido);
 
 			//Tratamos la imagen
 			if (has_post_thumbnail($entrada->ID) && $configuracion['imagen'] == "1") $imagen = get_post_thumbnail_id($entrada->ID); //Imagen destacada
@@ -140,9 +139,10 @@ class CrossPress {
 			//Creamos un extracto con los enlaces incluidos
 			global $wp_filter;
 			
-			$contenido_filtrado = preg_replace("/\[caption.*\[\/caption\]/", '', $contenido);
+			$contenido_filtrado = preg_replace('/\[caption.*\[\/caption\]/', '', $contenido);
 			$contenido_filtrado = strip_tags($contenido_filtrado, '<a>');
-			$contenido_filtrado = preg_replace("/<[^\/>][^>]*><\/[^>]+>/", '', $contenido_filtrado);
+			$contenido_filtrado = preg_replace('/<[^\/>][^>]*><\/[^>]+>/', '', $contenido_filtrado);
+			$contenido = apply_filters('the_content', $contenido);
 
 			if (isset($wp_filter['excerpt_more']))
 			{
@@ -318,7 +318,9 @@ function crosspress_devuelve_la_imagen($entrada, $contenido) {
 	{
 		global $wpdb;
 	
-		$adjuntos = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $wpdb->prefix . "posts" . " WHERE guid='%s';", preg_replace('/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $imagenes[1][0]))); 
+		$upload = wp_upload_dir();
+		preg_match('/' . str_replace('/', '\/', $upload['baseurl']) . '\/(.*?)-\d+x\d+\.(jpg|jpeg|png|gif)$/i', $imagenes[1][0], $imagen);
+		$adjuntos = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $wpdb->prefix . "posts" . " WHERE post_name='%s';", $imagen[1])); 
 
 		return $adjuntos[0]; 
 	}
