@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.7
+Version: 1.8
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -374,7 +374,14 @@ function crosspress_plugin($nombre) {
 	return get_object_vars($plugin);
 }
 
-//Comprueba si hay que mostrar el mensaje de configuración
+//Muestra el mensaje de actualización
+function crosspress_actualizacion() {
+	global $crosspress;
+	
+    echo '<div class="error fade" id="message"><h3>' . $crosspress['plugin'] . '</h3><h4>' . sprintf(__("Please, update your %s. It's very important!", 'crosspress'), '<a href="' . $crosspress['ajustes'] . '" title="' . __('Settings', 'crosspress') . '">' . __('settings', 'crosspress') . '</a>') . '</h4></div>';
+}
+
+//Carga las hojas de estilo
 function crosspress_muestra_mensaje() {
 	global $entradas;
 	
@@ -384,13 +391,13 @@ function crosspress_muestra_mensaje() {
 
 	$configuracion = get_option('crosspress');
 	crosspress_procesa_tipos($configuracion);
-	if (!isset($configuracion['entradas']) && $entradas) add_action('admin_notices', 'crosspress_actualizacion');
+	if (!isset($configuracion['entradas']) && $entradas) add_action('admin_notices', 'crosspress_actualizacion'); //Comprueba si hay que mostrar el mensaje de actualización
 }
 add_action('admin_init', 'crosspress_muestra_mensaje');
 
-function crosspress_actualizacion() {
-	global $crosspress;
-	
-    echo '<div class="error fade" id="message"><h3>' . $crosspress['plugin'] . '</h3><h4>' . sprintf(__("Please, update your %s. It's very important!", 'crosspress'), '<a href="' . $crosspress['ajustes'] . '" title="' . __('Settings', 'crosspress') . '">' . __('settings', 'crosspress') . '</a>') . '</h4></div>';
+//Eliminamos todo rastro del plugin al desinstalarlo
+function crosspress_desinstalar() {
+  delete_option('crosspress');
 }
+register_deactivation_hook( __FILE__, 'crosspress_desinstalar' );
 ?>
