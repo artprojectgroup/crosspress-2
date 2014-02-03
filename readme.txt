@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer, google+, google plus
 Requires at least: 2.6
 Tested up to: 3.8.1
-Stable tag: 1.8
+Stable tag: 1.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,8 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 1. Captura de pantalla de **CrossPress 2**.
 
 == Changelog ==
+= 1.8.1 =
+* Pequeño arreglo que elimina un mensaje de error del sistema.
 = 1.8 =
 * Añadida nueva función que limpia la base de datos al desinstalar el plugin.
 = 1.7 =
@@ -129,6 +131,8 @@ Arreglo de pequeños errores en el código fuente.
 Versión inicial.
 
 == Upgrade Notice ==
+= 1.8.1 =
+* Pequeño arreglo que elimina un mensaje de error del sistema.
 = 1.8 =
 * Añadida nueva función que limpia la base de datos al desinstalar el plugin.
 = 1.7 =

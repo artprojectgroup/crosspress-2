@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.8
+Version: 1.8.1
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -351,6 +351,7 @@ function crosspress_procesa_tipos($configuracion) {
 	
 	$chequea_tipos = array("post", "page", "feedback", "attachment", "revision", "nav_menu_item", "product_variation", "shop_order", "shop_coupon", "safecss", "options");
 	$tipos_de_entradas = get_post_types('','names');
+	$tipos = array();
 	if (isset($configuracion['entradas'])) $tipos = crosspress_procesa_entradas($configuracion['entradas']);
 	foreach ($tipos_de_entradas as $tipo_de_entrada)
 	{
