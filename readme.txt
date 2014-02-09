@@ -11,6 +11,8 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Publica automáticamente las entradas publicadas en nuestro sitio web en otros servicios como WordPress.com, Blogger y Google+ vía Buffer.
 
 == Description ==
+[*Español*](http://wordpress.org/plugins/crosspress-2/) - [*English*](http://goo.gl/GbTgxL) - [*Italiano*](http://goo.gl/ENT0XA) - [*Français*](http://goo.gl/nZJ0Qk) - [*Deutsch*](http://goo.gl/a89I2w) 
+
 **CrossPress 2** nos ofrece la posibilidad de publicar automáticamente todas las entradas que publiquemos en nuestro sitio web bajo WordPress en WordPress.com, Blogpsot.com y Google+ vía BufferApp.com.
 
 = Características =
