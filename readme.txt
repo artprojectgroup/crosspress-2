@@ -1,6 +1,6 @@
 === CrossPress 2 ===
 Contributors: artprojectgroup
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4
+Donate link: http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2
 Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer, google+, google plus
 Requires at least: 2.6
 Tested up to: 3.8.1
@@ -49,7 +49,7 @@ Recuerda que puedes encontrar más plugin para WordPress en [Art Project Group](
  * Buscar **CrossPress 2** en el buscador disponible en *Plugins -> Añadir nuevo* y pulsar el botón *Instalar ahora*.
 2. Activar el plugin a través del menú *Plugins* en el Panel de Administración de WordPress.
 3. Configurar el plugin en *Ajustes -> CrossPress* o a través del botón *Ajustes*.
-4. Listo, ahora ya puedes disfrutar de él, y si te gusta y te resulta útil, hacer una [*donación*](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4).
+4. Listo, ahora ya puedes disfrutar de él, y si te gusta y te resulta útil, hacer una [*donación*](http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2).
 
 == Frequently asked questions ==
 = ¿Cómo se configura? =
@@ -61,6 +61,9 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 1. Captura de pantalla de **CrossPress 2**.
 
 == Changelog ==
+= 1.8.2 =
+* Añadida caché para los datos externos.
+* Cambio del botón y enlace de donación.
 = 1.8.1 =
 * Pequeño arreglo que elimina un mensaje de error del sistema.
 = 1.8 =
@@ -133,6 +136,9 @@ Arreglo de pequeños errores en el código fuente.
 Versión inicial.
 
 == Upgrade Notice ==
+= 1.8.2 =
+* Añadida caché para los datos externos.
+* Cambio del botón y enlace de donación.
 = 1.8.1 =
 * Pequeño arreglo que elimina un mensaje de error del sistema.
 = 1.8 =
@@ -207,7 +213,7 @@ Por ello regalamos a esa gran comunidad hispana nuestros plugins con interfaces,
 Esperamos que os guste nuestra iniciativa.
 
 == Donación ==
-¿Te ha gustado y te ha resultado útil **CrossPress 2** en tu sitio web? Te agradeceríamos una [pequeña donación](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4) que nos ayudará a seguir mejorando este plugin y a crear más plugins totalmente gratuitos para toda la comunidad WordPress.
+¿Te ha gustado y te ha resultado útil **CrossPress 2** en tu sitio web? Te agradeceríamos una [pequeña donación](http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2) que nos ayudará a seguir mejorando este plugin y a crear más plugins totalmente gratuitos para toda la comunidad WordPress.
 
 == Gracias ==
 * A [Atthakorn Chanthong](http://www.atthakorn.com/) por el gran plugin que ha inspirado **CrossPress 2**.

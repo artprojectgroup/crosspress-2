@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.8.1
+Version: 1.8.2
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -25,8 +25,7 @@ License: GPL2
 $crosspress = array(	'plugin' => 'CrossPress 2', 
 						'plugin_uri' => 'crosspress-2', 
 						'plugin_url' => 'http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2', 
-						'paypal' => 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SK3B33K9YA3S4', 
-						'ajustes' => 'options-general.php?page=crosspress-2/crosspress.php', 
+						'ajustes' => 'options-general.php?page=crosspress', 
 						'puntuacion' => 'http://wordpress.org/support/view/plugin-reviews/crosspress-2');
 $entradas = "";
 $tipos_prohibidos = array();
@@ -43,7 +42,7 @@ function crosspress_enlaces($enlaces, $archivo) {
 	if ($archivo == $plugin) 
 	{
 		$plugin = crosspress_plugin($crosspress['plugin_uri']);
-		$enlaces[] = '<a href="' . $crosspress['paypal'] . '" target="_blank" title="' . __('Make a donation by ', 'crosspress') . 'PayPal"><span class="icon-paypal"></span></a>';
+		$enlaces[] = '<a href="' . $crosspress['plugin_url'] . '" target="_blank" title="' . __('Make a donation by ', 'crosspress') . 'APG"><span class="icon-bills"></span></a>';
 		$enlaces[] = '<a href="'. $crosspress['plugin_url'] . '" target="_blank" title="' . $crosspress['plugin'] . '"><strong class="artprojectgroup">APG</strong></a>';
 		$enlaces[] = '<a href="https://www.facebook.com/artprojectgroup" title="' . __('Follow us on ', 'crosspress') . 'Facebook" target="_blank"><span class="icon-facebook6"></span></a> <a href="https://twitter.com/artprojectgroup" title="' . __('Follow us on ', 'crosspress') . 'Twitter" target="_blank"><span class="icon-social19"></span></a> <a href="https://plus.google.com/+ArtProjectGroupES" title="' . __('Follow us on ', 'crosspress') . 'Google+" target="_blank"><span class="icon-google16"></span></a> <a href="http://es.linkedin.com/in/artprojectgroup" title="' . __('Follow us on ', 'crosspress') . 'LinkedIn" target="_blank"><span class="icon-logo"></span></a>';
 		$enlaces[] = '<a href="http://profiles.wordpress.org/artprojectgroup/" title="' . __('More plugins on ', 'crosspress') . 'WordPress" target="_blank"><span class="icon-wordpress2"></span></a>';
@@ -94,7 +93,7 @@ class CrossPress {
 	
 	//Inicializa la opción CrosPress en el menú Ajustes
 	function crosspress_menu_administrador() {
-		add_options_page(__('CrossPress Options.', 'crosspress'), 'CrossPress', 'manage_options', __FILE__, array($this, 'crosspress_formulario_de_configuracion'));
+		add_options_page(__('CrossPress Options.', 'crosspress'), 'CrossPress', 'manage_options', 'crosspress', array($this, 'crosspress_formulario_de_configuracion'));
 	}
 	
 	//Publica las actualizaciones
@@ -367,10 +366,13 @@ new CrossPress;
 function crosspress_plugin($nombre) {
 	$argumentos = (object) array('slug' => $nombre);
 	$consulta = array('action' => 'plugin_information', 'timeout' => 15, 'request' => serialize($argumentos));
-	$url = 'http://api.wordpress.org/plugins/info/1.0/';
-	$respuesta = wp_remote_post($url, array('body' => $consulta));
+	$respuesta = get_transient('crosspress_plugin');
+	if (false === $respuesta) 
+	{
+		$respuesta = wp_remote_post('http://api.wordpress.org/plugins/info/1.0/', array('body' => $consulta));
+		set_transient('crosspress_plugin', $respuesta, 24 * HOUR_IN_SECONDS);
+	}
 	$plugin = unserialize($respuesta['body']);
-	//echo '<pre>' . print_r($plugin, true) . '</pre>';
 	
 	return get_object_vars($plugin);
 }
@@ -399,6 +401,7 @@ add_action('admin_init', 'crosspress_muestra_mensaje');
 //Eliminamos todo rastro del plugin al desinstalarlo
 function crosspress_desinstalar() {
   delete_option('crosspress');
+  delete_transient('crosspress_plugin');
 }
 register_deactivation_hook( __FILE__, 'crosspress_desinstalar' );
 ?>
