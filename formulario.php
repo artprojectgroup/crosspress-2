@@ -21,7 +21,7 @@
   ?>
   <h3><a href="<?php echo $crosspress['plugin_url']; ?>" title="Art Project Group"><?php echo $crosspress['plugin']; ?></a> </h3>
   <p>
-    <?php _e('Post automatically the posts published in your website in other services like WordPress.com, Blogger y Google + via BufferApp.com.', 'crosspress'); ?>
+    <?php _e('Post automatically the posts published in your website in other services like WordPress.com, Blogger and Google + via BufferApp.com.', 'crosspress'); ?>
   </p>
   <?php include('cuadro-donacion.php'); ?>
   <form method="post" action="">

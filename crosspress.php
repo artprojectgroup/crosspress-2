@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.8.3
+Version: 1.8.4
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -24,6 +24,7 @@ License: GPL2
 //Definimos las variables
 $crosspress = array(	'plugin' => 'CrossPress 2', 
 						'plugin_uri' => 'crosspress-2', 
+						'donacion' => 'http://www.artprojectgroup.es/donacion',
 						'plugin_url' => 'http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2', 
 						'ajustes' => 'options-general.php?page=crosspress', 
 						'puntuacion' => 'http://wordpress.org/support/view/plugin-reviews/crosspress-2');
@@ -42,7 +43,7 @@ function crosspress_enlaces($enlaces, $archivo) {
 	if ($archivo == $plugin) 
 	{
 		$plugin = crosspress_plugin($crosspress['plugin_uri']);
-		$enlaces[] = '<a href="' . $crosspress['plugin_url'] . '" target="_blank" title="' . __('Make a donation by ', 'crosspress') . 'APG"><span class="icon-bills"></span></a>';
+		$enlaces[] = '<a href="' . $crosspress['donacion'] . '" target="_blank" title="' . __('Make a donation by ', 'crosspress') . 'APG"><span class="icon-bills"></span></a>';
 		$enlaces[] = '<a href="'. $crosspress['plugin_url'] . '" target="_blank" title="' . $crosspress['plugin'] . '"><strong class="artprojectgroup">APG</strong></a>';
 		$enlaces[] = '<a href="https://www.facebook.com/artprojectgroup" title="' . __('Follow us on ', 'crosspress') . 'Facebook" target="_blank"><span class="icon-facebook6"></span></a> <a href="https://twitter.com/artprojectgroup" title="' . __('Follow us on ', 'crosspress') . 'Twitter" target="_blank"><span class="icon-social19"></span></a> <a href="https://plus.google.com/+ArtProjectGroupES" title="' . __('Follow us on ', 'crosspress') . 'Google+" target="_blank"><span class="icon-google16"></span></a> <a href="http://es.linkedin.com/in/artprojectgroup" title="' . __('Follow us on ', 'crosspress') . 'LinkedIn" target="_blank"><span class="icon-logo"></span></a>';
 		$enlaces[] = '<a href="http://profiles.wordpress.org/artprojectgroup/" title="' . __('More plugins on ', 'crosspress') . 'WordPress" target="_blank"><span class="icon-wordpress2"></span></a>';
