@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 1.8.4
+Version: 1.8.5
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author: Art Project Group
@@ -373,7 +373,7 @@ function crosspress_plugin($nombre) {
 		$respuesta = wp_remote_post('http://api.wordpress.org/plugins/info/1.0/', array('body' => $consulta));
 		set_transient('crosspress_plugin', $respuesta, 24 * HOUR_IN_SECONDS);
 	}
-	if (isset($respuesta['body'])) $plugin = get_object_vars(unserialize($respuesta['body']));
+	if (!is_wp_error($respuesta)) $plugin = get_object_vars(unserialize($respuesta['body']));
 	else $plugin['rating'] = 100;
 	
 	return $plugin;
@@ -402,8 +402,8 @@ add_action('admin_init', 'crosspress_muestra_mensaje');
 
 //Eliminamos todo rastro del plugin al desinstalarlo
 function crosspress_desinstalar() {
-  delete_option('crosspress');
-  delete_transient('crosspress_plugin');
+	delete_option('crosspress');
+	delete_transient('crosspress_plugin');
 }
-register_deactivation_hook( __FILE__, 'crosspress_desinstalar' );
+register_uninstall_hook( __FILE__, 'crosspress_desinstalar' );
 ?>

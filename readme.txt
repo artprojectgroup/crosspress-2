@@ -3,8 +3,8 @@ Contributors: artprojectgroup
 Donate link: http://www.artprojectgroup.es/donacion
 Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer, google+, google plus
 Requires at least: 2.6
-Tested up to: 3.8.1
-Stable tag: 1.8.4
+Tested up to: 3.8.2
+Stable tag: 1.8.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,6 +61,9 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 1. Captura de pantalla de **CrossPress 2**.
 
 == Changelog ==
+= 1.8.5 =
+* Arreglo de error que borraba toda la configuración al desactivar el plugin.
+* Corrección menor que evita la aparición de un código de error al recopilar información sobre el plugin.
 = 1.8.4 =
 * Arreglo de pequeña errata en el idioma inglés.
 * Cambio del enlace de donación.
@@ -141,6 +144,9 @@ Arreglo de pequeños errores en el código fuente.
 Versión inicial.
 
 == Upgrade Notice ==
+= 1.8.5 =
+* Arreglo de error que borraba toda la configuración al desactivar el plugin.
+* Corrección menor que evita la aparición de un código de error al recopilar información sobre el plugin.
 = 1.8.4 =
 * Arreglo de pequeña errata en el idioma inglés.
 * Cambio del enlace de donación.
