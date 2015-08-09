@@ -3,10 +3,10 @@ Contributors: artprojectgroup
 Donate link: http://www.artprojectgroup.es/tienda/donacion
 Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer, google+, google plus
 Requires at least: 2.6
-Tested up to: 4.0
-Stable tag: 1.8.5
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 4.3
+Stable tag: 2.0
+License: GPLv3
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 Publica automáticamente las entradas publicadas en nuestro sitio web en otros servicios como WordPress.com, Blogger y Google+ vía Buffer.
 
@@ -61,6 +61,11 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 1. Captura de pantalla de **CrossPress 2**.
 
 == Changelog ==
+= 2.0 =
+* Actualización de las traducciones.
+* Nueva hoja de estilo sensible.
+* Modificación de la estructura interna del plugin para ajustarse a los estándares de WordPress.
+* Actualización de la captura de pantalla.
 = 1.8.5 =
 * Arreglo de error que borraba toda la configuración al desactivar el plugin.
 * Corrección menor que evita la aparición de un código de error al recopilar información sobre el plugin.
@@ -144,6 +149,11 @@ Arreglo de pequeños errores en el código fuente.
 Versión inicial.
 
 == Upgrade Notice ==
+= 2.0 =
+* Actualización de las traducciones.
+* Nueva hoja de estilo sensible.
+* Modificación de la estructura interna del plugin para ajustarse a los estándares de WordPress.
+* Actualización de la captura de pantalla.
 = 1.8.5 =
 * Arreglo de error que borraba toda la configuración al desactivar el plugin.
 * Corrección menor que evita la aparición de un código de error al recopilar información sobre el plugin.

@@ -23,10 +23,10 @@
   <p>
     <?php _e('Post automatically the posts published in your website in other services like WordPress.com, Blogger and Google + via BufferApp.com.', 'crosspress'); ?>
   </p>
-  <?php include('cuadro-donacion.php'); ?>
+  <?php include( 'cuadro-informacion.php' ); ?>
   <form method="post" action="">
-    <div class="cabecera"> <a href="<?php echo $crosspress['plugin_url']; ?>" title="<?php echo $crosspress['plugin']; ?>" target="_blank"><span class="imagen"></span></a> </div>
-    <table class="form-table">
+    <div class="cabecera"> <a href="<?php echo $crosspress['plugin_url']; ?>" title="<?php echo $crosspress['plugin']; ?>" target="_blank"><img src="<?php echo plugins_url( '../assets/images/cabecera.jpg', __FILE__ ); ?>" class="imagen" alt="<?php echo $crosspress['plugin']; ?>" /></a> </div>
+    <table class="form-table apg-table">
       <tbody>
         <tr valign="top">
           <th scope="row"><label for="cuenta">
