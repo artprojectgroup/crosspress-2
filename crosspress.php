@@ -12,7 +12,7 @@ Tested up to: 4.3
 Text Domain: crosspress
 Domain Path: /i18n/languages
 
-@package WooCommerce - APG Free Postcode/State/Country Shipping
+@package CrossPress 2
 @category Core
 @author Art Project Group
 */
