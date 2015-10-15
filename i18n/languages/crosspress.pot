@@ -1,38 +1,36 @@
+# Loco Gettext template
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: CrossPress 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Thu Oct 15 2015 09:32:07 GMT+0200 (CEST)\n"
-"PO-Revision-Date: Thu Oct 15 2015 09:34:38 GMT+0200 (CEST)\n"
-"Last-Translator: Herves-Vida <info@herves-vida.com>\n"
+"POT-Revision-Date: Thu Oct 15 2015 09:32:13 GMT+0200 (CEST)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
 "Language-Team: \n"
-"Language: Spanish (Spain)\n"
-"Plural-Forms: nplurals=2; plural=n != 1\n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Loco - https://localise.biz/\n"
-"X-Poedit-Language: Spanish\n"
-"X-Poedit-Country: SPAIN\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ../..\n"
 "X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
 "__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
 "_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
 "esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
 "esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
-"X-Poedit-Basepath: ../\n"
-"X-Poedit-Bookmarks: \n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Textdomain-Support: yes\n"
-"X-Loco-Target-Locale: es_ES"
+"X-Generator: Loco - https://localise.biz/"
 
 #. Name of the plugin
 msgid "CrossPress 2"
-msgstr "CrossPress 2"
+msgstr ""
 
 #. URI of the plugin
 msgid "http://wordpress.org/plugins/crosspress-2"
-msgstr "http://wordpress.org/plugins/crosspress-2"
+msgstr ""
 
 #. Description of the plugin
 msgid ""
@@ -42,247 +40,232 @@ msgid ""
 "<a href=\"http://wordpress.org/plugins/crosspress/\" "
 "target=\"_blank\"><strong>CrossPress</strong></a> plugin."
 msgstr ""
-"Con CrossPress 2 podrás publicar automáticamente a otros servicios las "
-"entradas de tu sitio web bajo WordPress. Creado a partir del plugin <a "
-"href=\"http://wordpress.org/plugins/crosspress/\" "
-"target=\"_blank\"><strong>CrossPress</strong></a> de <a href=\"http://www."
-"atthakorn.com/project/crosspress/\" target=\"_blank\">Atthakorn Chanthong</a>."
 
 #. Author URI of the plugin
 msgid "http://www.artprojectgroup.es"
-msgstr "http://www.artprojectgroup.es"
+msgstr ""
 
 #. Author of the plugin
 msgid "Art Project Group"
-msgstr "Art Project Group"
+msgstr ""
 
 #: ../../crosspress.php:49 ../../includes/cuadro-informacion.php:7
 msgid "Make a donation by "
-msgstr "Haz una donación por "
+msgstr ""
 
 #: ../../crosspress.php:51 ../../crosspress.php:51 ../../crosspress.php:51 ../..
-#: crosspress.php:51 ../../includes/cuadro-informacion.php:19 ../..
-#: includes/cuadro-informacion.php:19 ../../includes/cuadro-informacion.php:19 ..
-#: ../includes/cuadro-informacion.php:19
+#: /crosspress.php:51 ../../includes/cuadro-informacion.php:19 ../..
+#: /includes/cuadro-informacion.php:19 ../../includes/cuadro-informacion.php:19 ..
+#: /../includes/cuadro-informacion.php:19
 msgid "Follow us on "
-msgstr "Síguenos en "
+msgstr ""
 
 #: ../../crosspress.php:52 ../../includes/cuadro-informacion.php:25
 msgid "More plugins on "
-msgstr "Más plugins en "
+msgstr ""
 
 #: ../../crosspress.php:53 ../../crosspress.php:53 ../../includes/cuadro-
 #: informacion.php:33 ../../includes/cuadro-informacion.php:33
 msgid "Contact with us by "
-msgstr "Contacta con nosotros por "
+msgstr ""
 
 #: ../../crosspress.php:66
 msgid "Settings of "
-msgstr "Ajustes de "
+msgstr ""
 
 #: ../../crosspress.php:66
 msgid "Settings"
-msgstr "Ajustes"
+msgstr ""
 
 #: ../../crosspress.php:67
 msgid "Support of "
-msgstr "Soporte técnico de"
+msgstr ""
 
 #: ../../crosspress.php:67 ../../includes/cuadro-informacion.php:39
 msgid "Support"
-msgstr "Soporte técnico"
+msgstr ""
 
 #: ../../crosspress.php:133 ../../includes/formulario.php:5
 msgid "CrossPress Options."
-msgstr "Opciones de CrossPress."
+msgstr ""
 
 #: ../../crosspress.php:169 ../../includes/formulario.php:28
 msgid " in "
-msgstr " en "
+msgstr ""
 
 #: ../../crosspress.php:476 ../../includes/cuadro-informacion.php:44
 #, php-format
 msgid "Please, rate %s:"
-msgstr "Por favor, puntúa %s:"
+msgstr ""
 
 #: ../../includes/cuadro-informacion.php:5
 msgid "If you enjoyed and find helpful this plugin, please make a donation:"
-msgstr "Si te ha gustado y resultado útil este plugin, por favor, haz una donación:"
+msgstr ""
 
 #: ../../includes/cuadro-informacion.php:17
 msgid "Follow us:"
-msgstr "Síguenos:"
+msgstr ""
 
 #: ../../includes/cuadro-informacion.php:23
 msgid "More plugins:"
-msgstr "Más plugins:"
+msgstr ""
 
 #: ../../includes/cuadro-informacion.php:31
 msgid "Contact with us:"
-msgstr "Contacta con nosotros:"
+msgstr ""
 
 #: ../../includes/cuadro-informacion.php:37
 msgid "Documentation and Support:"
-msgstr "Documentación y soporte:"
+msgstr ""
 
 #: ../../includes/formulario.php:9
 msgid "Options saved."
-msgstr "Opciones guardadas."
+msgstr ""
 
 #: ../../includes/formulario.php:16 ../../includes/formulario.php:205 ../..
-#: includes/formulario.php:207
+#: /includes/formulario.php:207
 msgid "Continue reading on "
-msgstr "Sigue leyendo en "
+msgstr ""
 
 #: ../../includes/formulario.php:21 ../../includes/formulario.php:206 ../..
-#: includes/formulario.php:208
+#: /includes/formulario.php:208
 msgid "Original source: "
-msgstr "Fuente original: "
+msgstr ""
 
 #: ../../includes/formulario.php:26
 msgid "publication-name"
-msgstr "nombre-de-la-publicacion"
+msgstr ""
 
 #: ../../includes/formulario.php:27
 msgid "Publication name"
-msgstr "Nombre de la publicación"
+msgstr ""
 
 #: ../../includes/formulario.php:32
 msgid ""
 "Post automatically the posts published in your website in other services "
 "like WordPress.com, Blogger and Google + via BufferApp.com."
 msgstr ""
-" Publica automáticamente las entradas publicadas en nuestro sitio web en "
-"otros servicios como WordPress.com, Blogger y Google+ vía Buffer."
 
 #: ../../includes/formulario.php:41
 msgid "Email accounts of services:"
-msgstr "Cuentas de correo de los servicios:"
+msgstr ""
 
 #: ../../includes/formulario.php:46
 msgid "Emails that lets you automatically post on each service."
 msgstr ""
-"Correos electrónicos que te permiten publicar automáticamente en cada "
-"servicio."
 
 #: ../../includes/formulario.php:48
 msgid "Each email account must be entered onto a new line."
-msgstr "Cada cuenta de correo debe introducirse en una línea nueva."
+msgstr ""
 
 #: ../../includes/formulario.php:50
 msgid "Tested on: "
-msgstr "Comprobado su funcionamiento en: "
+msgstr ""
 
 #: ../../includes/formulario.php:52 ../../includes/formulario.php:73
 msgid "and"
-msgstr "y"
+msgstr ""
 
 #: ../../includes/formulario.php:58
 msgid "Custom post types:"
-msgstr "Tipos de entrada personalizados:"
+msgstr ""
 
 #: ../../includes/formulario.php:63
 msgid "Custom post types used to post on each service."
-msgstr "Tipos de entrada personalizados usados para publicar en cada servicio."
+msgstr ""
 
 #: ../../includes/formulario.php:65
 msgid "Each custom post type must be entered onto a new line."
-msgstr "Cada tipo de entrada personalizado debe introducirse en una línea nueva."
+msgstr ""
 
 #: ../../includes/formulario.php:80
 msgid "are your others unused custom post types."
-msgstr "son tus otros tipos de entrada personalizados sin usar."
+msgstr ""
 
 #: ../../includes/formulario.php:85
 msgid "Pages:"
-msgstr "Páginas:"
+msgstr ""
 
 #: ../../includes/formulario.php:89
 msgid "Post pages."
-msgstr "Publicar páginas."
+msgstr ""
 
 #: ../../includes/formulario.php:93
 msgid "Image:"
-msgstr "Imagen:"
+msgstr ""
 
 #: ../../includes/formulario.php:97
 msgid "Post image."
-msgstr "Publicar imagen."
+msgstr ""
 
 #: ../../includes/formulario.php:101
 msgid "Full content:"
-msgstr "Contenido completo:"
+msgstr ""
 
 #: ../../includes/formulario.php:105
 msgid "Post full content."
-msgstr "Publicar contenido completo."
+msgstr ""
 
 #: ../../includes/formulario.php:109
 msgid "Excerpt:"
-msgstr "Extracto:"
+msgstr ""
 
 #: ../../includes/formulario.php:113
 msgid "Post excerpt."
-msgstr "Publicar extracto."
+msgstr ""
 
 #: ../../includes/formulario.php:117
 msgid "Excerpt with links:"
-msgstr "Extracto con enlaces:"
+msgstr ""
 
 #: ../../includes/formulario.php:121
 msgid "Post excerpt with links."
-msgstr "Publicar extracto con enlaces."
+msgstr ""
 
 #: ../../includes/formulario.php:124
 msgid "Except for"
-msgstr "Excepto en"
+msgstr ""
 
 #: ../../includes/formulario.php:129
 msgid "Excerpt Link:"
-msgstr "Enlace del extracto:"
+msgstr ""
 
 #: ../../includes/formulario.php:134
 msgid "You can customize, if desired, the link after the excerpt of the publication."
 msgstr ""
-"Puede personalizar, si lo desea, el enlace que aparece tras el extracto de "
-"la publicación."
 
 #: ../../includes/formulario.php:135 ../../includes/formulario.php:149
 msgid "It's very important to leave a blank space at the end."
-msgstr "Es muy importante que deje un espacio en blanco al final."
+msgstr ""
 
 #: ../../includes/formulario.php:137
 msgid "The excerpt link now looks like this:"
-msgstr "El enlace del extracto tiene actualmente esta apariencia:"
+msgstr ""
 
 #: ../../includes/formulario.php:143
 msgid "Post link:"
-msgstr "Enlace de la publicación:"
+msgstr ""
 
 #: ../../includes/formulario.php:148
 msgid ""
 "If you wish you can customize the link that appears after the full post. "
 "It's very important to leave a blank space."
 msgstr ""
-"Puede personalizar, si lo desea, el enlace que aparece tras la publicación "
-"completa."
 
 #: ../../includes/formulario.php:151
 msgid "The post link now looks like this:"
-msgstr "El enlace de la publicación tiene actualmente esta apariencia:"
+msgstr ""
 
 #: ../../includes/formulario.php:157
 msgid "Signature:"
-msgstr "Firma:"
+msgstr ""
 
 #: ../../includes/formulario.php:163
 msgid ""
 "If desired you can add a signature. Introduced URLs will be converted into "
 "links automatically."
 msgstr ""
-"Puede añadir una firma si lo desea. Las URLs introducidas serán convertidas "
-"en enlaces automáticamente."
 
 #: ../../includes/formulario.php:169
 msgid "Save Changes"
-msgstr "Guardar cambios"
+msgstr ""

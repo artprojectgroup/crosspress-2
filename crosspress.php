@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 2.0
+Version: 2.0.1
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author URI: http://www.artprojectgroup.es/
 Author: Art Project Group
 Requires at least: 2.6
-Tested up to: 4.3
+Tested up to: 4.3.1
 
 Text Domain: crosspress
 Domain Path: /i18n/languages

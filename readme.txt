@@ -3,8 +3,8 @@ Contributors: artprojectgroup
 Donate link: http://www.artprojectgroup.es/tienda/donacion
 Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer, google+, google plus
 Requires at least: 2.6
-Tested up to: 4.3
-Stable tag: 2.0
+Tested up to: 4.3.1
+Stable tag: 2.0.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -24,6 +24,13 @@ Publica automáticamente las entradas publicadas en nuestro sitio web en otros s
 * Incluye las categorías y etiquetas en las publicaciones en WordPress.com.
 * Permite la personalización de los textos de los enlaces a la entrada original para el extracto y el texto completo.
 * Incluye la posibilidad de añadir una firma a las publicaciones remotas.
+
+= Traducciones =
+* Español ([**Art Project Group**](http://www.artprojectgroup.es/)).
+* English ([**Art Project Group**](http://www.artprojectgroup.es/)).
+
+= Soporte técnico =
+**Art Project Group** te ofrece [**Soporte técnico**](http://www.artprojectgroup.es/tienda/soporte-tecnico) para configurar o instalar **CrossPress 2**. 
 
 = Origen =
 **CrossPress 2** ha sido programado a partir del plugin [*CrossPress*](http://wordpress.org/plugins/crosspress/) de [Atthakorn Chanthong](http://www.atthakorn.com/), que, a pesar de su brillantez, no ofrecían todas las características que necesitábamos. Aún así su trabajo ha sido completamente imprescindible para la realización de este plugin.
@@ -61,6 +68,9 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 1. Captura de pantalla de **CrossPress 2**.
 
 == Changelog ==
+= 2.0.1 =
+* Actualización del paquete de fuentes. Nuevo icono de Google+.
+* Actualización de las traducciones.
 = 2.0 =
 * Actualización de las traducciones.
 * Nueva hoja de estilo sensible.
@@ -149,6 +159,9 @@ Arreglo de pequeños errores en el código fuente.
 Versión inicial.
 
 == Upgrade Notice ==
+= 2.0.1 =
+* Actualización del paquete de fuentes. Nuevo icono de Google+.
+* Actualización de las traducciones.
 = 2.0 =
 * Actualización de las traducciones.
 * Nueva hoja de estilo sensible.
@@ -226,8 +239,8 @@ Añadida una nueva sección para poder personalizar el enlace en los extractos.
 Arreglo de pequeños errores en el código fuente.
 
 ==Traducciones ==
-* *English*: by **Art Project Group** (default language).
-* *Español*: por **Art Project Group**.
+* *English*: by [**Art Project Group**](http://www.artprojectgroup.es/) (default language).
+* *Español*: por [**Art Project Group**](http://www.artprojectgroup.es/).
 
 == ¿Por qué está esta página en español? ==
 Mientras WordPress no nos permita a los desarrolladores realizar esta página en más de un idioma, elegiremos siempre el español.
