@@ -4,7 +4,7 @@ Donate link: http://www.artprojectgroup.es/tienda/donacion
 Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer, google+, google plus
 Requires at least: 2.6
 Tested up to: 4.3.1
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -68,6 +68,9 @@ Podemos añadir una firma personalizada, donde las URLs que introduzcamos se con
 1. Captura de pantalla de **CrossPress 2**.
 
 == Changelog ==
+= 2.0.2 =
+* Corrección de error que aparecía al comprobar la existencia de configuración.
+* Actualización de las traducciones.
 = 2.0.1 =
 * Actualización del paquete de fuentes. Nuevo icono de Google+.
 * Actualización de las traducciones.
@@ -159,6 +162,9 @@ Arreglo de pequeños errores en el código fuente.
 Versión inicial.
 
 == Upgrade Notice ==
+= 2.0.2 =
+* Corrección de error que aparecía al comprobar la existencia de configuración.
+* Actualización de las traducciones.
 = 2.0.1 =
 * Actualización del paquete de fuentes. Nuevo icono de Google+.
 * Actualización de las traducciones.

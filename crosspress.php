@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 2.0.1
+Version: 2.0.2
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author URI: http://www.artprojectgroup.es/
@@ -301,7 +301,7 @@ function crosspress_procesa_cuentas( $listado, $cuentas = '' ) {
 		'<br>', 
 		'<br/>', 
 		'<br />'
-	 );
+	);
 	$listado = str_replace( $salto_de_linea, ', ', $listado ) ; //remove new line
 	$listado = str_replace( ' ', '', $listado ); //clear white space
 	$listado = trim( trim( trim( $listado ), ', ' ) ); //Elimina las comas y espacios en blanco
@@ -420,7 +420,7 @@ function crosspress_procesa_tipos( $configuracion ) {
 		"shop_coupon", 
 		"safecss", 
 		"options"
-	 );
+	);
 	$tipos_de_entradas = get_post_types( '', 'names' );
 	$tipos = array();
 	if ( isset( $configuracion['entradas'] ) ) {
@@ -476,8 +476,17 @@ function crosspress_plugin( $nombre ) {
 	return '<a title="' . sprintf( __( 'Please, rate %s:', 'crosspress' ), $crosspress['plugin'] ) . '" href="' . $crosspress['puntuacion'] . '?rate=5#postform" class="estrellas">' . $estrellas . '</a>';
 }
 
+//Muestra el mensaje de actualización
+function crosspress_actualizacion() {
+	global $crosspress;
+	
+    echo '<div class="error fade" id="message"><h3>' . $crosspress['plugin'] . '</h3><h4>' . sprintf( __( "Please, update your %s. It's very important!", 'crosspress' ), '<a href="' . $crosspress['ajustes'] . '" title="' . __( 'Settings', 'crosspress' ) . '">' . __('settings', 'crosspress') . '</a>') . '</h4></div>';
+}
+
 //Carga las hojas de estilo
 function crosspress_muestra_mensaje() {
+	global $entradas;
+	
 	wp_register_style( 'crosspress_hoja_de_estilo', plugins_url( 'assets/css/style.css', __FILE__ ) ); //Carga la hoja de estilo
 	wp_enqueue_style( 'crosspress_hoja_de_estilo' ); //Carga la hoja de estilo global
 	wp_register_style( 'crosspress_fuentes', plugins_url( 'assets/fonts/stylesheet.css', __FILE__ ) ); //Carga la hoja de estilo global

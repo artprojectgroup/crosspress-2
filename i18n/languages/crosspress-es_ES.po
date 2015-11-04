@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: CrossPress 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Thu Oct 15 2015 09:32:07 GMT+0200 (CEST)\n"
-"PO-Revision-Date: Thu Oct 15 2015 09:34:38 GMT+0200 (CEST)\n"
+"PO-Revision-Date: Wed Nov 04 2015 17:38:39 GMT+0100 (CET)\n"
 "Last-Translator: Herves-Vida <info@herves-vida.com>\n"
 "Language-Team: \n"
 "Language: Spanish (Spain)\n"
@@ -25,6 +25,15 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Textdomain-Support: yes\n"
 "X-Loco-Target-Locale: es_ES"
+
+#: ../../crosspress.php:483
+#, php-format
+msgid "Please, update your %s. It's very important!"
+msgstr "Por favor, actualiza tus %s. ¡Es muy importante!"
+
+#: ../../crosspress.php:483
+msgid "settings"
+msgstr "ajustes"
 
 #. Name of the plugin
 msgid "CrossPress 2"
@@ -80,7 +89,7 @@ msgstr "Contacta con nosotros por "
 msgid "Settings of "
 msgstr "Ajustes de "
 
-#: ../../crosspress.php:66
+#: ../../crosspress.php:66 ../../crosspress.php:483
 msgid "Settings"
 msgstr "Ajustes"
 

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: CrossPress 2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Thu Oct 15 2015 09:32:07 GMT+0200 (CEST)\n"
-"POT-Revision-Date: Thu Oct 15 2015 09:32:13 GMT+0200 (CEST)\n"
+"POT-Revision-Date: Wed Nov 04 2015 17:34:57 GMT+0100 (CET)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Settings of "
 msgstr ""
 
-#: ../../crosspress.php:66
+#: ../../crosspress.php:66 ../../crosspress.php:483
 msgid "Settings"
 msgstr ""
 
@@ -96,6 +96,15 @@ msgstr ""
 #: ../../crosspress.php:476 ../../includes/cuadro-informacion.php:44
 #, php-format
 msgid "Please, rate %s:"
+msgstr ""
+
+#: ../../crosspress.php:483
+#, php-format
+msgid "Please, update your %s. It's very important!"
+msgstr ""
+
+#: ../../crosspress.php:483
+msgid "settings"
 msgstr ""
 
 #: ../../includes/cuadro-informacion.php:5
