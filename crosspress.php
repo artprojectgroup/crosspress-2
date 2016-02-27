@@ -1,13 +1,13 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 2.0.2
+Version: 2.0.2.1
 Plugin URI: http://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
 Author URI: http://www.artprojectgroup.es/
 Author: Art Project Group
 Requires at least: 2.6
-Tested up to: 4.3.1
+Tested up to: 4.4.2
 
 Text Domain: crosspress
 Domain Path: /i18n/languages
@@ -30,7 +30,7 @@ $crosspress = array(
 	'plugin' 		=> 'CrossPress 2', 
 	'plugin_uri' 	=> 'crosspress-2', 
 	'donacion' 		=> 'http://www.artprojectgroup.es/tienda/donacion',
-	'soporte' 		=> 'http://www.artprojectgroup.es/tienda/soporte-tecnico',
+	'soporte' 		=> 'http://www.wpprojectgroup.es/tienda/ticket-de-soporte',
 	'plugin_url' 	=> 'http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2', 
 	'ajustes' 		=> 'options-general.php?page=crosspress', 
 	'puntuacion' 	=> 'http://wordpress.org/support/view/plugin-reviews/crosspress-2'
@@ -489,8 +489,6 @@ function crosspress_muestra_mensaje() {
 	
 	wp_register_style( 'crosspress_hoja_de_estilo', plugins_url( 'assets/css/style.css', __FILE__ ) ); //Carga la hoja de estilo
 	wp_enqueue_style( 'crosspress_hoja_de_estilo' ); //Carga la hoja de estilo global
-	wp_register_style( 'crosspress_fuentes', plugins_url( 'assets/fonts/stylesheet.css', __FILE__ ) ); //Carga la hoja de estilo global
-	wp_enqueue_style( 'crosspress_fuentes' ); //Carga la hoja de estilo global
 
 	$configuracion = get_option( 'crosspress' );
 	crosspress_procesa_tipos( $configuracion );
