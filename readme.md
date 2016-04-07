@@ -7,7 +7,7 @@ Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer, go
 
 Requires at least: 2.6
 
-Tested up to: 4.4.2
+Tested up to: 4.5
 
 Stable tag: 2.0.2.1
 
