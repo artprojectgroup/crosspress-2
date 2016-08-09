@@ -7,7 +7,7 @@ Description: With CrossPress 2 you can post automatically to other services the 
 Author URI: http://www.artprojectgroup.es/
 Author: Art Project Group
 Requires at least: 2.6
-Tested up to: 4.5
+Tested up to: 4.6
 
 Text Domain: crosspress
 Domain Path: /i18n/languages
