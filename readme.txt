@@ -11,9 +11,9 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Modifique las estructuras personalizadas en las URLs para autor, búsqueda, comentarios, página y feed.
 
 == Description ==
-[*Español*](http://wordpress.org/plugins/custom-base-terms/) - [*English*](http://goo.gl/CKlRqe) - [*Italiano*](http://goo.gl/T3KW84) - [*Français*](http://goo.gl/eV2eGj) - [*Deutsch*](http://goo.gl/EtiDZq) 
+[*Español*](https://wordpress.org/plugins/crosspress-2/) - [*English*](https://goo.gl/qzcDMt) - [*Italiano*](https://goo.gl/JE3hyA) - [*Français*](https://goo.gl/AjQswl) - [*Deutsch*](https://goo.gl/VHaBXT) 
 
-**Custom Base Terms** genera cuatro nuevas opciones en *Ajustes -> Enlaces permanentes* donde se podrán introducir las estructuras personalizadas en las URLs para autor, búsqueda, comentarios, página y feed.
+**CrossPress 2** genera cuatro nuevas opciones en *Ajustes -> Enlaces permanentes* donde se podrán introducir las estructuras personalizadas en las URLs para autor, búsqueda, comentarios, página y feed.
 
 = Características =
 * Totalmente automático.
