@@ -1,16 +1,16 @@
 <?php
 /*
 Plugin Name: CrossPress 2
-Version: 2.0.2.1
-Plugin URI: http://wordpress.org/plugins/crosspress-2/
+Version: 2.0.3
+Plugin URI: https://wordpress.org/plugins/crosspress-2/
 Description: With CrossPress 2 you can post automatically to other services the publications of your WordPress website. Created from <a href="http://www.atthakorn.com/project/crosspress/" target="_blank">Atthakorn Chanthong</a> <a href="http://wordpress.org/plugins/crosspress/" target="_blank"><strong>CrossPress</strong></a> plugin.
-Author URI: http://www.artprojectgroup.es/
+Author URI: https://artprojectgroup.es
 Author: Art Project Group
 Requires at least: 2.6
-Tested up to: 4.6
+Tested up to: 4.9.1
 
-Text Domain: crosspress
-Domain Path: /i18n/languages
+Text Domain: crosspress-2
+Domain Path: /languages
 
 @package CrossPress 2
 @category Core
@@ -29,28 +29,28 @@ define( 'DIRECCION_crosspress', plugin_basename( __FILE__ ) );
 $crosspress = array( 	
 	'plugin' 		=> 'CrossPress 2', 
 	'plugin_uri' 	=> 'crosspress-2', 
-	'donacion' 		=> 'http://www.artprojectgroup.es/tienda/donacion',
-	'soporte' 		=> 'http://www.wpprojectgroup.es/tienda/ticket-de-soporte',
-	'plugin_url' 	=> 'http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2', 
+	'donacion' 		=> 'https://artprojectgroup.es/tienda/donacion',
+	'soporte' 		=> 'https://artprojectgroup.es/tienda/ticket-de-soporte',
+	'plugin_url' 	=> 'https://artprojectgroup.es/plugins-para-wordpress/crosspress-2', 
 	'ajustes' 		=> 'options-general.php?page=crosspress', 
-	'puntuacion' 	=> 'http://wordpress.org/support/view/plugin-reviews/crosspress-2'
+	'puntuacion' 	=> 'https://wordpress.org/support/view/plugin-reviews/crosspress-2'
  );
 $entradas = "";
 $tipos_prohibidos = array();
 
 //Carga el idioma
-load_plugin_textdomain( 'crosspress', null, dirname( DIRECCION_crosspress ) . '/i18n/languages' );
+load_plugin_textdomain( 'crosspress-2', null, dirname( DIRECCION_crosspress ) . '/languages' );
 
 //Enlaces adicionales personalizados
 function crosspress_enlaces( $enlaces, $archivo ) {
 	global $crosspress;
 
 	if ( $archivo == DIRECCION_crosspress ) {
-		$enlaces[] = '<a href="' . $crosspress['donacion'] . '" target="_blank" title="' . __( 'Make a donation by ', 'crosspress' ) . 'APG"><span class="genericon genericon-cart"></span></a>';
+		$enlaces[] = '<a href="' . $crosspress['donacion'] . '" target="_blank" title="' . __( 'Make a donation by ', 'crosspress-2' ) . 'APG"><span class="genericon genericon-cart"></span></a>';
 		$enlaces[] = '<a href="'. $crosspress['plugin_url'] . '" target="_blank" title="' . $crosspress['plugin'] . '"><strong class="artprojectgroup">APG</strong></a>';
-		$enlaces[] = '<a href="https://www.facebook.com/artprojectgroup" title="' . __( 'Follow us on ', 'crosspress' ) . 'Facebook" target="_blank"><span class="genericon genericon-facebook-alt"></span></a> <a href="https://twitter.com/artprojectgroup" title="' . __( 'Follow us on ', 'crosspress' ) . 'Twitter" target="_blank"><span class="genericon genericon-twitter"></span></a> <a href="https://plus.google.com/+ArtProjectGroupES" title="' . __( 'Follow us on ', 'crosspress' ) . 'Google+" target="_blank"><span class="genericon genericon-googleplus-alt"></span></a> <a href="http://es.linkedin.com/in/artprojectgroup" title="' . __( 'Follow us on ', 'crosspress' ) . 'LinkedIn" target="_blank"><span class="genericon genericon-linkedin"></span></a>';
-		$enlaces[] = '<a href="http://profiles.wordpress.org/artprojectgroup/" title="' . __( 'More plugins on ', 'crosspress' ) . 'WordPress" target="_blank"><span class="genericon genericon-wordpress"></span></a>';
-		$enlaces[] = '<a href="mailto:info@artprojectgroup.es" title="' . __( 'Contact with us by ', 'crosspress' ) . 'e-mail"><span class="genericon genericon-mail"></span></a> <a href="skype:artprojectgroup" title="' . __( 'Contact with us by ', 'crosspress' ) . 'Skype"><span class="genericon genericon-skype"></span></a>';
+		$enlaces[] = '<a href="https://www.facebook.com/artprojectgroup" title="' . __( 'Follow us on ', 'crosspress-2' ) . 'Facebook" target="_blank"><span class="genericon genericon-facebook-alt"></span></a> <a href="https://twitter.com/artprojectgroup" title="' . __( 'Follow us on ', 'crosspress-2' ) . 'Twitter" target="_blank"><span class="genericon genericon-twitter"></span></a> <a href="https://plus.google.com/+ArtProjectGroupES" title="' . __( 'Follow us on ', 'crosspress-2' ) . 'Google+" target="_blank"><span class="genericon genericon-googleplus-alt"></span></a> <a href="http://es.linkedin.com/in/artprojectgroup" title="' . __( 'Follow us on ', 'crosspress-2' ) . 'LinkedIn" target="_blank"><span class="genericon genericon-linkedin"></span></a>';
+		$enlaces[] = '<a href="http://profiles.wordpress.org/artprojectgroup/" title="' . __( 'More plugins on ', 'crosspress-2' ) . 'WordPress" target="_blank"><span class="genericon genericon-wordpress"></span></a>';
+		$enlaces[] = '<a href="mailto:info@artprojectgroup.es" title="' . __( 'Contact with us by ', 'crosspress-2' ) . 'e-mail"><span class="genericon genericon-mail"></span></a> <a href="skype:artprojectgroup" title="' . __( 'Contact with us by ', 'crosspress-2' ) . 'Skype"><span class="genericon genericon-skype"></span></a>';
 		$enlaces[] = crosspress_plugin( $crosspress['plugin_uri'] );
 	}
 	
@@ -63,8 +63,8 @@ function crosspress_enlace_de_ajustes( $enlaces ) {
 	global $crosspress;
 
 	$enlaces_de_ajustes = array( 
-		'<a href="' . $crosspress['ajustes'] . '" title="' . __( 'Settings of ', 'crosspress' ) . $crosspress['plugin'] .'">' . __( 'Settings', 'crosspress' ) . '</a>', 
-		'<a href="' . $crosspress['soporte'] . '" title="' . __( 'Support of ', 'crosspress' ) . $crosspress['plugin'] .'">' . __( 'Support', 'apg_shipping' ) . '</a>'
+		'<a href="' . $crosspress['ajustes'] . '" title="' . __( 'Settings of ', 'crosspress-2' ) . $crosspress['plugin'] .'">' . __( 'Settings', 'crosspress-2' ) . '</a>', 
+		'<a href="' . $crosspress['soporte'] . '" title="' . __( 'Support of ', 'crosspress-2' ) . $crosspress['plugin'] .'">' . __( 'Support', 'apg_shipping' ) . '</a>'
 	 );
 	foreach( $enlaces_de_ajustes as $enlace_de_ajustes )	{
 		array_unshift( $enlaces, $enlace_de_ajustes );
@@ -130,7 +130,7 @@ class CrossPress {
 	
 	//Inicializa la opción CrosPress en el menú Ajustes
 	function crosspress_menu_administrador() {
-		add_options_page( __( 'CrossPress Options.', 'crosspress' ), 'CrossPress', 'manage_options', 'crosspress', array( $this, 'crosspress_formulario_de_configuracion' ) );
+		add_options_page( __( 'CrossPress Options.', 'crosspress-2' ), 'CrossPress', 'manage_options', 'crosspress', array( $this, 'crosspress_formulario_de_configuracion' ) );
 	}
 	
 	//Publica las actualizaciones
@@ -166,7 +166,7 @@ class CrossPress {
 
 			//Creamos el enlace
 			$enlace = get_permalink( $entrada->ID );
-			$enlace_html = '<a href="' . $enlace . '" title="' . $entrada->post_title . __( ' in ', 'crosspress' ) . get_bloginfo( 'name' ) . '">';
+			$enlace_html = '<a href="' . $enlace . '" title="' . $entrada->post_title . __( ' in ', 'crosspress-2' ) . get_bloginfo( 'name' ) . '">';
 			if ( $imagen ) {		
 				$imagen = crosspress_procesa_la_imagen( $imagen );
 				$imagen = $enlace_html . $imagen . '</a><br />';
@@ -473,14 +473,14 @@ function crosspress_plugin( $nombre ) {
 	$estrellas = ob_get_contents();
 	ob_end_clean();
 
-	return '<a title="' . sprintf( __( 'Please, rate %s:', 'crosspress' ), $crosspress['plugin'] ) . '" href="' . $crosspress['puntuacion'] . '?rate=5#postform" class="estrellas">' . $estrellas . '</a>';
+	return '<a title="' . sprintf( __( 'Please, rate %s:', 'crosspress-2' ), $crosspress['plugin'] ) . '" href="' . $crosspress['puntuacion'] . '?rate=5#postform" class="estrellas">' . $estrellas . '</a>';
 }
 
 //Muestra el mensaje de actualización
 function crosspress_actualizacion() {
 	global $crosspress;
 	
-    echo '<div class="error fade" id="message"><h3>' . $crosspress['plugin'] . '</h3><h4>' . sprintf( __( "Please, update your %s. It's very important!", 'crosspress' ), '<a href="' . $crosspress['ajustes'] . '" title="' . __( 'Settings', 'crosspress' ) . '">' . __('settings', 'crosspress') . '</a>') . '</h4></div>';
+    echo '<div class="error fade" id="message"><h3>' . $crosspress['plugin'] . '</h3><h4>' . sprintf( __( "Please, update your %s. It's very important!", 'crosspress-2' ), '<a href="' . $crosspress['ajustes'] . '" title="' . __( 'Settings', 'crosspress-2' ) . '">' . __( 'settings', 'crosspress' ) . '</a>') . '</h4></div>';
 }
 
 //Carga las hojas de estilo
@@ -502,4 +502,3 @@ function crosspress_desinstalar() {
 	delete_transient( 'crosspress_plugin' );
 }
 register_uninstall_hook( __FILE__, 'crosspress_desinstalar' );
-?>

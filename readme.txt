@@ -1,10 +1,10 @@
 === CrossPress 2 ===
 Contributors: artprojectgroup
-Donate link: http://www.artprojectgroup.es/tienda/donacion
+Donate link: https://artprojectgroup.es/tienda/donacion
 Tags: wordpress.com, blogspot.com, bufferapp.com, wordpress, blogger, buffer, google+, google plus
 Requires at least: 2.6
-Tested up to: 4.6
-Stable tag: 2.0.2.1
+Tested up to: 4.9.1
+Stable tag: 2.0.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -26,28 +26,28 @@ Modifique las estructuras personalizadas en las URLs para autor, búsqueda, come
 * Incluye la posibilidad de añadir una firma a las publicaciones remotas.
 
 = Traducciones =
-* Español ([**Art Project Group**](http://www.artprojectgroup.es/)).
-* English ([**Art Project Group**](http://www.artprojectgroup.es/)).
+* Español ([**Art Project Group**](https://artprojectgroup.es/)).
+* English ([**Art Project Group**](https://artprojectgroup.es/)).
 
 = Soporte técnico =
-**Art Project Group** te ofrece [**Soporte técnico**](http://www.wpprojectgroup.es/tienda/ticket-de-soporte) para configurar o instalar **CrossPress 2**. 
+**Art Project Group** te ofrece [**Soporte técnico**](https://artprojectgroup.es/tienda/ticket-de-soporte) para configurar o instalar **CrossPress 2**. 
 
 = Origen =
 **CrossPress 2** ha sido programado a partir del plugin [*CrossPress*](http://wordpress.org/plugins/crosspress/) de [Atthakorn Chanthong](http://www.atthakorn.com/), que, a pesar de su brillantez, no ofrecían todas las características que necesitábamos. Aún así su trabajo ha sido completamente imprescindible para la realización de este plugin.
 
 = Más información =
-En nuestro sitio web oficial puede obtener más información sobre [**CrossPress 2**](http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2). 
+En nuestro sitio web oficial puede obtener más información sobre [**CrossPress 2**](https://artprojectgroup.es/plugins-para-wordpress/crosspress-2). 
 
 = Comentarios =
 No olvides dejarnos tu comentario en:
 
-* [CrossPress 2](http://www.artprojectgroup.es/plugins-para-wordpress/crosspress-2) en Art Project Group.
+* [CrossPress 2](https://artprojectgroup.es/plugins-para-wordpress/crosspress-2) en Art Project Group.
 * [Art Project Group](https://www.facebook.com/artprojectgroup) en Facebook.
 * [@artprojectgroup](https://twitter.com/artprojectgroup) en Twitter.
 * [+ArtProjectGroupES](https://plus.google.com/+ArtProjectGroupES/) en Google+.
 
 = Más plugins =
-Recuerda que puedes encontrar más [plugins para WordPress](http://www.artprojectgroup.es/plugins-para-wordpress) en [Art Project Group](http://www.artprojectgroup.es) y en nuestro perfil en [WordPress](http://profiles.wordpress.org/artprojectgroup/).
+Recuerda que puedes encontrar más [plugins para WordPress](https://artprojectgroup.es/plugins-para-wordpress) en [Art Project Group](https://artprojectgroup.es) y en nuestro perfil en [WordPress](http://profiles.wordpress.org/artprojectgroup/).
 
 = GitHub =
 Puedes seguir el desarrollo de este plugin en [Github](https://github.com/artprojectgroup/crosspress-2).
@@ -59,7 +59,7 @@ Puedes seguir el desarrollo de este plugin en [Github](https://github.com/artpro
  * Buscar **CrossPress 2** en el buscador disponible en *Plugins -> Añadir nuevo* y pulsar el botón *Instalar ahora*.
 2. Activar el plugin a través del menú *Plugins* en el Panel de Administración de WordPress.
 3. Configurar el plugin en *Ajustes -> CrossPress* o a través del botón *Ajustes*.
-4. Listo, ahora ya puedes disfrutar de él, y si te gusta y te resulta útil, hacer una [*donación*](http://www.artprojectgroup.es/tienda/donacion).
+4. Listo, ahora ya puedes disfrutar de él, y si te gusta y te resulta útil, hacer una [*donación*](https://artprojectgroup.es/tienda/donacion).
 
 == Frequently asked questions ==
 = ¿Cómo se configura? =
@@ -68,7 +68,7 @@ Sólo hay que ir a *Ajustes -> CrossPress* y añadir los código PIN, cuentas de
 Podemos añadir una firma personalizada, donde las URLs que introduzcamos se convertirán automáticamente en enlaces, y elegir si queremos que se publique el contenido íntegro de nuestra entrada o sólo un resumen.
 
 = Soporte técnico =
-Si necesitas ayuda para configurar o instalar **CrossPress 2**, **Art Project Group** te ofrece su servicio de [**Soporte técnico**](http://www.wpprojectgroup.es/tienda/ticket-de-soporte). 
+Si necesitas ayuda para configurar o instalar **CrossPress 2**, **Art Project Group** te ofrece su servicio de [**Soporte técnico**](https://artprojectgroup.es/tienda/ticket-de-soporte). 
 
 *En ningún caso **Art Project Group** proporciona ningún tipo de soporte técnico gratuito.*
 
@@ -176,11 +176,11 @@ Si necesitas ayuda para configurar o instalar **CrossPress 2**, **Art Project Gr
 * Actualización de enlaces de soporte y pequeñas actualizaciones.
 
 ==Traducciones ==
-* *English*: by [**Art Project Group**](http://www.artprojectgroup.es/) (default language).
-* *Español*: por [**Art Project Group**](http://www.artprojectgroup.es/).
+* *English*: by [**Art Project Group**](https://artprojectgroup.es/) (default language).
+* *Español*: por [**Art Project Group**](https://artprojectgroup.es/).
 
 == Soporte técnico ==
-Dado que **CrossPress 2** es totalmente gratuito, **Art Project Group** sólo proporciona el servicio de [**Soporte técnico**](http://www.wpprojectgroup.es/tienda/ticket-de-soporte) previo pago. En ningún caso **Art Project Group** proporciona ningún tipo de soporte técnico gratuito.
+Dado que **CrossPress 2** es totalmente gratuito, **Art Project Group** sólo proporciona el servicio de [**Soporte técnico**](https://artprojectgroup.es/tienda/ticket-de-soporte) previo pago. En ningún caso **Art Project Group** proporciona ningún tipo de soporte técnico gratuito.
 
 == ¿Por qué está esta página en español? ==
 Mientras WordPress no nos permita a los desarrolladores realizar esta página en más de un idioma, elegiremos siempre el español.
@@ -192,7 +192,7 @@ Por ello regalamos a esa gran comunidad hispana nuestros plugins con interfaces,
 Esperamos que os guste nuestra iniciativa.
 
 == Donación ==
-¿Te ha gustado y te ha resultado útil **CrossPress 2** en tu sitio web? Te agradeceríamos una [pequeña donación](http://www.artprojectgroup.es/tienda/donacion) que nos ayudará a seguir mejorando este plugin y a crear más plugins totalmente gratuitos para toda la comunidad WordPress.
+¿Te ha gustado y te ha resultado útil **CrossPress 2** en tu sitio web? Te agradeceríamos una [pequeña donación](https://artprojectgroup.es/tienda/donacion) que nos ayudará a seguir mejorando este plugin y a crear más plugins totalmente gratuitos para toda la comunidad WordPress.
 
 == Gracias ==
 * A [Atthakorn Chanthong](http://www.atthakorn.com/) por el gran plugin que ha inspirado **CrossPress 2**.
